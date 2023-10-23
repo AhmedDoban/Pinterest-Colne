@@ -7,4 +7,5 @@
   min-height: 100vh;
   background-color: var(--primary-bg-color);
   overflow: hidden;
+  transition: var(--main-transition);
 }

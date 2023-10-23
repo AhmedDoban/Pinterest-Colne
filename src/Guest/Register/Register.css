@@ -19,8 +19,8 @@
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register left 
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register left 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .container .left {
   position: relative;
   display: flex;
@@ -36,6 +36,7 @@
   line-height: 77px;
   width: 500px;
   max-width: 100%;
+  color: var(--primary-dark-color);
 }
 
 .Register .container .left p {
@@ -66,8 +67,8 @@
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register center img
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register center img
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .container .center > img {
   position: relative;
   width: 350px;
@@ -81,8 +82,8 @@
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register right 
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register right 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .container .right {
   position: relative;
   display: flex;
@@ -135,11 +136,12 @@
 .Register .container .right .form .recover {
   position: relative;
   margin: 10px 0 15px 0;
-  text-align: right;
+  text-align: left;
   cursor: pointer;
   font-size: 11px;
+  letter-spacing: 1px;
 }
-.Register .container .right .form .Sign-box button {
+.Register .container .right .form .Register-box button {
   position: relative;
   width: 100%;
   padding: 10px 12px;
@@ -151,8 +153,8 @@
   border-radius: 10px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register right other-action-span
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register right other-action-span
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .right .other-action-span {
   position: relative;
   width: 100%;
@@ -180,8 +182,8 @@
   background-color: var(--main-p-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # Register right other-action
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+# Register right other-action
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Register .right .other-action {
   position: relative;
   display: flex;
@@ -200,6 +202,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: var(--main-transition);
+  color: var(--primary-dark-color);
 }
 .Register .right .other-action i:hover {
   color: var(--primary-color);

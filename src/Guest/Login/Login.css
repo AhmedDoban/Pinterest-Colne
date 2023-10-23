@@ -36,6 +36,7 @@
   line-height: 77px;
   width: 500px;
   max-width: 100%;
+  color: var(--primary-dark-color);
 }
 
 .login .container .left p {
@@ -138,6 +139,7 @@
   text-align: right;
   cursor: pointer;
   font-size: 11px;
+  letter-spacing: 1px;
 }
 .login .container .right .form .Sign-box button {
   position: relative;
@@ -200,6 +202,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: var(--main-transition);
+  color: var(--primary-dark-color);
 }
 .login .right .other-action i:hover {
   color: var(--primary-color);

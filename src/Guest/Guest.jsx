@@ -7,11 +7,15 @@ import Loading from "../Assets/Components/Loading/Loading";
 const Login = lazy(() => import("./Login/Login"));
 const Register = lazy(() => import("./Register/Register"));
 
-function Guest() {
+function Guest(props) {
   return (
     <React.Fragment>
       <div className="Guest">
-        <Navbar />
+        <Navbar
+          SetDark={props.SetDark}
+          Dark={props.Dark}
+          SetTheme={props.SetTheme}
+        />
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="" element={<Login />} />

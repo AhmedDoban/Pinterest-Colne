@@ -67,9 +67,11 @@ function Register() {
                   />
                 ) : null}
               </div>
-              <p className="recover">Recover Password ?</p>
-              <div className="Sign-box">
-                <button>Sign in</button>
+              <p className="recover">
+                when register you will accept all privilege
+              </p>
+              <div className="Register-box">
+                <button>Register now</button>
               </div>
             </div>
             <span className="other-action-span">or continue with</span>

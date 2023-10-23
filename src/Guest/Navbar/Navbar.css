@@ -52,7 +52,7 @@
   transition: var(--main-transition);
 }
 .navbar .container .logo input:checked + label {
-  background-color: var(--primary-dark-color);
+  background-color: var(--primary-color);
   box-shadow: var(--main-box-shadow);
 }
 .navbar .container .logo input:checked + label::before {
@@ -80,6 +80,8 @@
   gap: 10px;
   cursor: pointer;
   font-size: 16px;
+  color: var(--primary-dark-color);
+  transition: var(--main-transition);
 }
 
 .navbar .container .main_nav_menu .language > span + .dropdown {
