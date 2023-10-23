@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+  const [Language, Setlanguage] = useState({
+    active: false,
+    value: "English",
+  });
+  const Handlelanguage = () => {
+    const language = { ...Language };
+    language.active = !language.active;
+    Setlanguage(language);
+  };
   return (
     <React.Fragment>
       <div className="navbar">
@@ -13,15 +22,24 @@ function Navbar() {
             <label htmlFor="darkmode"></label>
           </div>
           <ul className="main_nav_menu">
-            <li>
+            <div className="language">
               <span>
-                English<i className="fa-solid fa-chevron-down"></i>
+                {Language.value}
+                <i
+                  className={
+                    Language.active
+                      ? "fa-solid fa-chevron-up"
+                      : "fa-solid fa-chevron-down"
+                  }
+                  onClick={() => Handlelanguage()}
+                />
               </span>
-              <div className="dropdown">
+              <div className={Language.active ? "dropdown active" : "dropdown"}>
                 <span>Arabic</span>
+                <span className="active">English</span>
                 <span>Japan</span>
               </div>
-            </li>
+            </div>
             <li>
               <NavLink to="">Login</NavLink>
             </li>

@@ -2,6 +2,8 @@
 # root
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 :root {
+  --white-color: #fff;
+  --main-p-color: #767676;
   --primary-color: #2d65ee;
   --primary-dark-color: #161518;
   --primary-bg-color: #f6f6f6;
@@ -13,6 +15,8 @@
   --main-transition: all 0.5s ease-in-out;
   --main-padding-top: 50px;
   --main-padding-bottom: 50px;
+  --main-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --blue-box-shadow: 0px 12px 21px 4px rgba(68, 97, 242, 0.15);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # main reset elements

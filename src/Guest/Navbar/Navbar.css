@@ -4,12 +4,13 @@
 .navbar {
   position: relative;
   height: 62px;
-  display: flex;
 }
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
+  height: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # logo
@@ -33,7 +34,7 @@
   position: relative;
   width: 50px;
   height: 25px;
-  background-color: #777;
+  background-color: #aaaaaa;
   border-radius: 15px;
   cursor: pointer;
   transition: var(--main-transition);
@@ -44,7 +45,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--white-color);
   top: 50%;
   transform: translateY(-50%);
   left: 5px;
@@ -52,7 +53,7 @@
 }
 .navbar .container .logo input:checked + label {
   background-color: var(--primary-dark-color);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: var(--main-box-shadow);
 }
 .navbar .container .logo input:checked + label::before {
   left: calc(100% - 20px);
@@ -63,5 +64,94 @@
 .navbar .container .main_nav_menu {
   position: relative;
   display: flex;
+  align-items: center;
+  gap: 15px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# nav menu language
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .main_nav_menu .language {
+  position: relative;
+}
+.navbar .container .main_nav_menu .language > span {
+  position: relative;
+  display: flex;
+  align-items: center;
   gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.navbar .container .main_nav_menu .language > span + .dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 5px;
+  box-shadow: var(--main-box-shadow);
+  background-color: var(--header-bg-color);
+  opacity: 0;
+  z-index: -1;
+}
+.navbar .container .main_nav_menu .language > span + .dropdown.active {
+  opacity: 1;
+  z-index: 1;
+  transition: var(--main-transition);
+}
+.navbar .container .main_nav_menu .language > span + .dropdown::before {
+  position: absolute;
+  content: "";
+  top: -13px;
+  right: 5px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent var(--header-bg-color) transparent;
+}
+.navbar .container .main_nav_menu .language > span + .dropdown span {
+  position: relative;
+  cursor: pointer;
+  transition: var(--main-transition);
+  font-weight: 400;
+}
+.navbar .container .main_nav_menu .language > span + .dropdown span.active,
+.navbar .container .main_nav_menu .language > span + .dropdown span:hover {
+  position: relative;
+  color: var(--primary-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# nav menu 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .main_nav_menu li a {
+  position: relative;
+  display: flex;
+  padding: 10px;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--main-transition);
+  border-radius: 21px;
+  background: var(--white-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+}
+.navbar .container .main_nav_menu li a::before {
+  position: absolute;
+  content: "";
+  width: 0%;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%);
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 0.5em;
+  transition: var(--main-transition);
+}
+.navbar .container .main_nav_menu li a.active {
+  background: transparent;
+  box-shadow: none;
+}
+.navbar .container .main_nav_menu li a.active::before {
+  width: 50%;
 }
