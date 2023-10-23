@@ -1,0 +1,89 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Scroll bar
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+::-webkit-scrollbar-thumb {
+  background: #767676;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# input General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+input:focus {
+  outline: none;
+}
+input:focus::placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
+}
+textarea:focus {
+  outline: none;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General elements
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+ul {
+  list-style: none;
+}
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+}
+p {
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #767676;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/*Mobile Screen*/
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/*Tab Screen*/
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/*PC Screen*/
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

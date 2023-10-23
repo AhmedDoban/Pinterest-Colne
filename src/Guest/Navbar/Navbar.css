@@ -1,0 +1,67 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Navbar
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar {
+  position: relative;
+  height: 62px;
+  display: flex;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# logo
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.navbar .container .logo img {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+.navbar .container .logo > input {
+  display: none;
+}
+.navbar .container .logo label {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background-color: #777;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.navbar .container .logo label::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  transition: var(--main-transition);
+}
+.navbar .container .logo input:checked + label {
+  background-color: var(--primary-dark-color);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.navbar .container .logo input:checked + label::before {
+  left: calc(100% - 20px);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# nav menu
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .main_nav_menu {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}

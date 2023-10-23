@@ -1,0 +1,41 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# root
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+:root {
+  --primary-color: #2d65ee;
+  --primary-dark-color: #161518;
+  --primary-bg-color: #f6f6f6;
+  --primary-bg-color-alt: #eef3ff;
+  --header-bg-color: #f8f9fa;
+  --footer-bg-color: #f8f8f8;
+  --txt-select-bg-color: #ffe8e6;
+  --logo-height: 40px;
+  --main-transition: all 0.5s ease-in-out;
+  --main-padding-top: 50px;
+  --main-padding-bottom: 50px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# main reset elements
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# animation
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@keyframes Up_and_Down {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}

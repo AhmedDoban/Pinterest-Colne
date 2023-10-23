@@ -1,0 +1,84 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Loading
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loading .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# img
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.loading .container > .img-box {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  max-width: 100%;
+  background-image: url("../../Images/Cloud1.png");
+  background-size: cover;
+  padding: 60px;
+}
+.loading .container .img-box > img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: Up_and_Down 1.2s ease-in-out infinite alternate-reverse;
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Loading paragraph
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.loading .container .loadingText {
+  position: relative;
+  display: flex;
+  letter-spacing: 1px;
+}
+.loading .container .loadingText p {
+  position: relative;
+  color: var(--primary-dark-color);
+  font-weight: 600;
+  font-size: 24px;
+  animation: loading_delay 1.5s ease-in-out infinite alternate;
+  transition: var(--main-transition);
+}
+@keyframes loading_delay {
+  from {
+    color: var(--primary-color);
+  }
+}
+.loading .container .loadingText p:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.loading .container .loadingText p:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.loading .container .loadingText p:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.loading .container .loadingText p:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.loading .container .loadingText p:nth-child(5) {
+  animation-delay: 1s;
+}
+.loading .container .loadingText p:nth-child(6) {
+  animation-delay: 1.2s;
+}
+.loading .container .loadingText p:nth-child(7) {
+  animation-delay: 1.4s;
+}

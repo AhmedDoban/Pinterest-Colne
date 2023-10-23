@@ -1,0 +1,29 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Blur Circle
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.BlurCircle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 430px;
+  height: 430px;
+}
+.BlurCircle .circle {
+  position: absolute;
+  width: 226px;
+  height: 226px;
+  border-radius: 50%;
+  opacity: 1;
+  filter: blur(158.5px);
+}
+.BlurCircle .circle:nth-child(1) {
+  top: 0;
+  left: 0;
+  background-color: #dda82a;
+}
+.BlurCircle .circle:nth-child(2) {
+  background-color: #4461f2;
+  bottom: 0;
+  right: 0;
+}
