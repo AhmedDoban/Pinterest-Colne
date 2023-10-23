@@ -1,0 +1,207 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Register
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register {
+  position: relative;
+  width: 100%;
+}
+.Register .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: calc(100vh - 62px);
+}
+@media (max-width: 992px) {
+  .Register .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Register left 
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .container .left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 100%;
+}
+.Register .container .left h1 {
+  position: relative;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 77px;
+  width: 500px;
+  max-width: 100%;
+}
+
+.Register .container .left p {
+  color: var(--primary-dark-color);
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  gap: 10px;
+  width: 290px;
+  max-width: 100%;
+}
+
+.Register .container .left p a {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-left: 10px;
+}
+@media (max-width: 992px) {
+  .Register .container .left h1 {
+    width: 100%;
+    font-size: 45px;
+    line-height: 50px;
+  }
+  .Register .container .left p {
+    font-size: 18px;
+    width: 100%;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Register center img
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .container .center > img {
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  height: 100%;
+  animation: Up_and_Down 1.2s ease-in-out infinite alternate-reverse;
+}
+@media (max-width: 1200px) {
+  .Register .container > .center {
+    display: none;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Register right 
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .container .right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 100%;
+}
+@media (max-width: 992px) {
+  .Register .container > .left {
+    display: none;
+  }
+}
+.Register .container .right .form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Register .container .right .form h1 {
+  position: relative;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 35px;
+  font-weight: bold;
+}
+.Register .container .right .form .input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+  height: 50px;
+  max-width: 100%;
+  border-radius: 10px;
+  background: #eaf0f7;
+  padding: 10px;
+}
+@media (max-width: 1200px) {
+  .Register .container .right,
+  .Register .container .right .form .input-box {
+    width: 450px;
+  }
+}
+.Register .container .right .form .input-box input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: transparent;
+}
+.Register .container .right .form .recover {
+  position: relative;
+  margin: 10px 0 15px 0;
+  text-align: right;
+  cursor: pointer;
+  font-size: 11px;
+}
+.Register .container .right .form .Sign-box button {
+  position: relative;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: var(--blue-box-shadow);
+  border-radius: 10px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Register right other-action-span
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .right .other-action-span {
+  position: relative;
+  width: 100%;
+  color: var(--main-p-color);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+}
+.Register .right .other-action-span::before {
+  position: absolute;
+  content: "";
+  width: 28%;
+  height: 2px;
+  left: 0;
+  background-color: var(--main-p-color);
+}
+.Register .right .other-action-span::after {
+  position: absolute;
+  content: "";
+  width: 28%;
+  height: 2px;
+  right: 0;
+  background-color: var(--main-p-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Register right other-action
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .right .other-action {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.Register .right .other-action i {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--main-p-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.Register .right .other-action i:hover {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}

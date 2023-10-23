@@ -26,8 +26,8 @@ function Login() {
           <div className="left">
             <h1>Sign In to Recharge Direct</h1>
             <p>
-              if you don’t an account you can
-              <Link to="Register">Register here!</Link>
+              if you don’t have an account you can
+              <Link to="Register">Register here x!</Link>
             </p>
           </div>
           <div className="center">
