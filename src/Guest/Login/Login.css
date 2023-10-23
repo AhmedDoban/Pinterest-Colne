@@ -16,6 +16,7 @@
   .login .container {
     flex-direction: column;
     justify-content: center;
+    gap: 50px;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -56,6 +57,11 @@
   margin-left: 10px;
 }
 @media (max-width: 992px) {
+  .login .container > .left {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
   .login .container .left h1 {
     width: 100%;
     font-size: 45px;
@@ -63,9 +69,10 @@
   }
   .login .container .left p {
     font-size: 18px;
-    width: 100%;
+    width: 80%;
   }
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # login center img
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -91,11 +98,7 @@
   gap: 25px;
   max-width: 100%;
 }
-@media (max-width: 992px) {
-  .login .container > .left {
-    display: none;
-  }
-}
+
 .login .container .right .form {
   position: relative;
   display: flex;
@@ -109,6 +112,11 @@
   font-size: 35px;
   font-weight: bold;
 }
+@media (max-width: 992px) {
+  .login .container .right .form h1 {
+    display: none;
+  }
+}
 .login .container .right .form .input-box {
   position: relative;
   display: flex;
@@ -118,7 +126,7 @@
   height: 50px;
   max-width: 100%;
   border-radius: 10px;
-  background: #eaf0f7;
+  background: var(--input-color);
   padding: 10px;
 }
 @media (max-width: 1200px) {
@@ -132,6 +140,7 @@
   height: 100%;
   border: 0;
   background-color: transparent;
+  color: var(--primary-dark-color);
 }
 .login .container .right .form .recover {
   position: relative;
@@ -151,6 +160,10 @@
   color: var(--white-color);
   box-shadow: var(--blue-box-shadow);
   border-radius: 10px;
+}
+.login .container .right .form .input-box i {
+  color: var(--main-p-color);
+  cursor: pointer;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # login right other-action-span

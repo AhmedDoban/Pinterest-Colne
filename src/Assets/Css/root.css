@@ -3,9 +3,10 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 :root {
   --white-color: #fff;
+  --input-color: #fff;
   --main-p-color: #767676;
   --primary-color: #2d65ee;
-  --dark-color: #14162e;
+  --dark-color: #393a3f;
   --primary-dark-color: #161518;
   --primary-bg-color: #f6f6f6;
   --primary-bg-color-alt: #eef3ff;

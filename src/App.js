@@ -29,10 +29,12 @@ function App() {
       Root.setProperty("--primary-bg-color", "#f1f5f9");
       Root.setProperty("--primary-dark-color", "#161518");
       Root.setProperty("--main-p-color", "#767676");
+      Root.setProperty("--input-color", "#fff");
     } else {
       Root.setProperty("--primary-bg-color", "#111111");
       Root.setProperty("--primary-dark-color", "#f6f6f6");
       Root.setProperty("--main-p-color", "#ffe8e6");
+      Root.setProperty("--input-color", "#393a3f");
     }
   };
 
