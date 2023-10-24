@@ -7,6 +7,8 @@ function Register() {
   const [User, SetUser] = useState({
     email: "",
     password: "",
+    FirstName: "",
+    LastName: "",
     ShowPassword: false,
   });
   const HandelSeePassword = () => {
@@ -39,6 +41,26 @@ function Register() {
           <div className="right">
             <div className="form">
               <h1>Register</h1>
+              <div className="infomation-box">
+                <div className="input-box">
+                  <input
+                    type="text"
+                    value={User.FirstName}
+                    onChange={(e) => HandleInput(e.target)}
+                    name="FirstName"
+                    placeholder="First Name"
+                  />
+                </div>
+                <div className="input-box">
+                  <input
+                    type="search"
+                    value={User.LastName}
+                    onChange={(e) => HandleInput(e.target)}
+                    name="LastName"
+                    placeholder="Last Name"
+                  />
+                </div>
+              </div>
               <div className="input-box">
                 <input
                   type="search"

@@ -97,6 +97,7 @@
   flex-direction: column;
   gap: 25px;
   max-width: 100%;
+  width: 350px;
 }
 
 .Register .container .right .form {
@@ -117,23 +118,28 @@
     display: none;
   }
 }
+
+.Register .container .right .form .infomation-box {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
 .Register .container .right .form .input-box {
   position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 300px;
+  width: 100%;
   height: 50px;
-  max-width: 100%;
   border-radius: 10px;
   background: var(--input-color);
   padding: 10px;
   transition: var(--main-transition);
 }
 @media (max-width: 1200px) {
-  .Register .container .right,
-  .Register .container .right .form .input-box {
-    width: 450px;
+  .Register .container .right {
+    width: 100%;
   }
 }
 .Register .container .right .form .input-box input {

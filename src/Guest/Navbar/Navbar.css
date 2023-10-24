@@ -32,31 +32,30 @@
 }
 .navbar .container .logo label {
   position: relative;
-  width: 50px;
-  height: 25px;
-  background-color: #aaaaaa;
-  border-radius: 15px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   transition: var(--main-transition);
 }
 .navbar .container .logo label::before {
   position: absolute;
   content: "";
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--white-color);
-  top: 50%;
-  transform: translateY(-50%);
-  left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("../../Assets/Images/sun.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   transition: var(--main-transition);
 }
-.navbar .container .logo input:checked + label {
-  background-color: var(--primary-color);
-  box-shadow: var(--main-box-shadow);
-}
 .navbar .container .logo input:checked + label::before {
-  left: calc(100% - 20px);
+  background-image: url("../../Assets/Images/clear.png");
+  transform: rotate(360deg);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # nav menu
