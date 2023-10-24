@@ -31,7 +31,7 @@ function App() {
       Root.setProperty("--main-p-color", "#767676");
       Root.setProperty("--input-color", "#fff");
     } else {
-      Root.setProperty("--primary-bg-color", "#111111");
+      Root.setProperty("--primary-bg-color", "#0f0f1b");
       Root.setProperty("--primary-dark-color", "#f6f6f6");
       Root.setProperty("--main-p-color", "#ffe8e6");
       Root.setProperty("--input-color", "#393a3f");

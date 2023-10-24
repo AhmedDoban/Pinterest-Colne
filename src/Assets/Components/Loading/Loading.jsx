@@ -1,13 +1,11 @@
 import React from "react";
 import "./Loading.css";
-import BlurCircle from "../Blur Circle/BlurCircle";
 
 function Loading() {
   return (
     <React.Fragment>
       <div className="loading">
         <div className="container">
-          <BlurCircle />
           <div className="img-box">
             <img
               src={require("../../Images/CLoudObject.png")}

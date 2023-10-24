@@ -28,7 +28,10 @@ function Navbar(props) {
       <div className="navbar">
         <div className="container">
           <div className="logo">
-            <img src={require("../../Assets/Images/logo.png")} alt="logo" />
+            <img
+              src={require("../../Assets/Images/logo.svg").default}
+              alt="logo"
+            />
             <input
               type="checkbox"
               name="darkmode"
