@@ -27,3 +27,11 @@
   bottom: 0;
   right: 0;
 }
+@media (max-width: 992px) {
+  .BlurCircle {
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
