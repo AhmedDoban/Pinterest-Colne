@@ -20,10 +20,10 @@
 .BlurCircle .circle:nth-child(1) {
   top: 0;
   left: 0;
-  background-color: #dda82a;
+  background-color: #ff0000;
 }
 .BlurCircle .circle:nth-child(2) {
-  background-color: #4461f2;
+  background-color: #002aff;
   bottom: 0;
   right: 0;
 }
