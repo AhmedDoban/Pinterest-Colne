@@ -23,8 +23,8 @@ function Register() {
       <div className="Register">
         <div className="container">
           <BlurCircle />
-          <div className="left">
-            <h1>Sign In to Recharge Direct</h1>
+          <div className="left" data-aos="zoom-in">
+            <h1>Register to Recharge Direct</h1>
             <p>
               if you have an account you can
               <Link to="/">login here !</Link>

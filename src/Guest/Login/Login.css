@@ -128,6 +128,7 @@
   border-radius: 10px;
   background: var(--input-color);
   padding: 10px;
+  transition: var(--main-transition);
 }
 @media (max-width: 1200px) {
   .login .container .right,
@@ -141,6 +142,7 @@
   border: 0;
   background-color: transparent;
   color: var(--primary-dark-color);
+  transition: var(--main-transition);
 }
 .login .container .right .form .recover {
   position: relative;
@@ -149,6 +151,7 @@
   cursor: pointer;
   font-size: 11px;
   letter-spacing: 1px;
+  transition: var(--main-transition);
 }
 .login .container .right .form .Sign-box button {
   position: relative;
@@ -160,10 +163,12 @@
   color: var(--white-color);
   box-shadow: var(--blue-box-shadow);
   border-radius: 10px;
+  transition: var(--main-transition);
 }
 .login .container .right .form .input-box i {
   color: var(--main-p-color);
   cursor: pointer;
+  transition: var(--main-transition);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # login right other-action-span
@@ -177,6 +182,7 @@
   justify-content: center;
   align-items: center;
   letter-spacing: 1px;
+  transition: var(--main-transition);
 }
 .login .right .other-action-span::before {
   position: absolute;
@@ -185,6 +191,7 @@
   height: 2px;
   left: 0;
   background-color: var(--main-p-color);
+  transition: var(--main-transition);
 }
 .login .right .other-action-span::after {
   position: absolute;
@@ -193,6 +200,7 @@
   height: 2px;
   right: 0;
   background-color: var(--main-p-color);
+  transition: var(--main-transition);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # login right other-action

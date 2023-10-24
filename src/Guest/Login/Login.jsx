@@ -23,7 +23,7 @@ function Login() {
       <div className="login">
         <div className="container">
           <BlurCircle />
-          <div className="left">
+          <div className="left" data-aos="zoom-in">
             <h1>Sign In to Recharge Direct</h1>
             <p>
               if you don’t have an account you can

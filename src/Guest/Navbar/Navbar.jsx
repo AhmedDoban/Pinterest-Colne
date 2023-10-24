@@ -44,8 +44,8 @@ function Navbar(props) {
                 <i
                   className={
                     Language.active
-                      ? "fa-solid fa-chevron-up"
-                      : "fa-solid fa-chevron-down"
+                      ? "fa-solid fa-chevron-down"
+                      : "fa-solid fa-chevron-up"
                   }
                   onClick={() => Handlelanguage()}
                 />
