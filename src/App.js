@@ -11,7 +11,7 @@ function App() {
   const [Dark, SetDark] = useState(false);
 
   useEffect(() => {
-    const login = localStorage.getItem("Login");
+    const login = localStorage.getItem("Pinterest-Login");
     if (login !== null) {
       SetLogin(true);
     }
@@ -39,9 +39,19 @@ function App() {
   };
 
   return Login ? (
-    <Auth Dark={Dark} SetDark={SetDark} SetTheme={SetTheme} />
+    <Auth
+      Dark={Dark}
+      SetDark={SetDark}
+      SetTheme={SetTheme}
+      SetLogin={SetLogin}
+    />
   ) : (
-    <Guest Dark={Dark} SetDark={SetDark} SetTheme={SetTheme} />
+    <Guest
+      Dark={Dark}
+      SetDark={SetDark}
+      SetTheme={SetTheme}
+      SetLogin={SetLogin}
+    />
   );
 }
 

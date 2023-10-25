@@ -18,7 +18,10 @@ function Guest(props) {
         />
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="" element={<Login />} />
+            <Route
+              path=""
+              element={<Login SetLogin={props.SetLogin} Dark={props.Dark} />}
+            />
             <Route path="/Register" element={<Register />} />
           </Routes>
         </Suspense>

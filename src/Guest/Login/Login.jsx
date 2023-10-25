@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import BlurCircle from "../../Assets/Components/Blur Circle/BlurCircle";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
-function Login() {
+function Login(props) {
   const [User, SetUser] = useState({
     email: "",
     password: "",
@@ -16,6 +18,47 @@ function Login() {
   };
   const HandleInput = (e) => {
     SetUser({ ...User, [e.name]: e.value });
+  };
+
+  const LoginHandelar = async () => {
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API}/Users/Login`, {
+          email: User.email,
+          password: User.password,
+        })
+        .then((response) => {
+          if (response.data.Status === "Faild") {
+            toast.error(response.data.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: localStorage.getItem("theme"),
+            });
+          } else {
+            localStorage.setItem(
+              "Pinterest-Login",
+              JSON.stringify(response.data.Data)
+            );
+            props.SetLogin(true);
+          }
+        });
+    } catch (err) {
+      toast.error("can't connect to the database", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: localStorage.getItem("theme"),
+      });
+    }
   };
 
   return (
@@ -69,7 +112,7 @@ function Login() {
               </div>
               <p className="recover">Recover Password ?</p>
               <div className="Sign-box">
-                <button>Sign in</button>
+                <button onClick={() => LoginHandelar()}>Sign in</button>
               </div>
             </div>
             <span className="other-action-span">or continue with</span>
@@ -81,6 +124,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }
