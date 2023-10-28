@@ -38,21 +38,23 @@ function App() {
       Root.setProperty("--input-color", "#393a3f");
     }
   };
+  // handle Dark mode from the navbar from auth or Guest user
+  const HandelDarkMode = () => {
+    const Theme = localStorage.getItem("theme");
+    if (Theme === "light") {
+      SetTheme("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      SetTheme("light");
+      localStorage.setItem("theme", "light");
+    }
+    SetDark(!Dark);
+  };
 
   return Login ? (
-    <Auth
-      Dark={Dark}
-      SetDark={SetDark}
-      SetTheme={SetTheme}
-      SetLogin={SetLogin}
-    />
+    <Auth Dark={Dark} SetLogin={SetLogin} HandelDarkMode={HandelDarkMode} />
   ) : (
-    <Guest
-      Dark={Dark}
-      SetDark={SetDark}
-      SetTheme={SetTheme}
-      SetLogin={SetLogin}
-    />
+    <Guest Dark={Dark} SetLogin={SetLogin} HandelDarkMode={HandelDarkMode} />
   );
 }
 

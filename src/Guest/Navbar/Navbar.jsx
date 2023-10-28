@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar(props) {
@@ -12,22 +12,12 @@ function Navbar(props) {
     language.active = !language.active;
     Setlanguage(language);
   };
-  const HandelDarkMode = () => {
-    const Theme = localStorage.getItem("theme");
-    if (Theme === "light") {
-      props.SetTheme("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      props.SetTheme("light");
-      localStorage.setItem("theme", "light");
-    }
-    props.SetDark(!props.Dark);
-  };
+
   return (
     <React.Fragment>
       <div className="navbar">
         <div className="container">
-          <div className="logo">
+          <Link className="logo" to="/">
             <img
               src={require("../../Assets/Images/logo.svg").default}
               alt="logo"
@@ -38,8 +28,8 @@ function Navbar(props) {
               id="darkmode"
               checked={props.Dark}
             />
-            <label htmlFor="darkmode" onClick={() => HandelDarkMode()} />
-          </div>
+            <label htmlFor="darkmode" onClick={() => props.HandelDarkMode()} />
+          </Link>
           <ul className="main_nav_menu">
             <div className="language">
               <span>

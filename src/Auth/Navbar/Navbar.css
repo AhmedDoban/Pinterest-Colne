@@ -1,0 +1,114 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Navbar
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar {
+  position: relative;
+  height: 62px;
+  transition: var(--main-transition);
+  border-bottom: 0.5px solid rgba(199, 199, 199, 0.533);
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # logo
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.navbar .container .logo img {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Search
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--input-color);
+  padding: 10px;
+  gap: 10px;
+  border-radius: 0.5em;
+  color: var(--main-p-color);
+  transition: var(--main-transition);
+}
+.navbar .container .search input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: var(--primary-dark-color);
+  background-color: transparent;
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # setting
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .setting-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.navbar .container .setting-nav a i {
+  position: relative;
+  color: var(--main-p-color);
+  transition: var(--main-transition);
+  font-weight: bold;
+  font-size: 18px;
+  width: 35px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .container .setting-nav a i.active,
+.navbar .container .setting-nav a i:hover {
+  color: var(--primary-dark-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Theme
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.navbar .container .setting-nav .Theme > input {
+  display: none;
+}
+.navbar .container .setting-nav .Theme .darkmodeimg {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.navbar .container .setting-nav .Theme .darkmodeimg label {
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.navbar .container .setting-nav .Theme label::before {
+  position: absolute;
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("../../Assets/Images/sun.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transition: var(--main-transition);
+}
+.navbar .container .Theme input:checked + .darkmodeimg label::before {
+  background-image: url("../../Assets/Images/clear.png");
+  transform: rotate(360deg);
+}

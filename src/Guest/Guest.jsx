@@ -11,11 +11,7 @@ function Guest(props) {
   return (
     <React.Fragment>
       <div className="Guest">
-        <Navbar
-          SetDark={props.SetDark}
-          Dark={props.Dark}
-          SetTheme={props.SetTheme}
-        />
+        <Navbar Dark={props.Dark} HandelDarkMode={props.HandelDarkMode} />
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route

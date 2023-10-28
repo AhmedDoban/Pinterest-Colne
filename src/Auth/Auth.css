@@ -1,0 +1,11 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Auth
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Auth {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primary-bg-color);
+  overflow: hidden;
+  transition: var(--main-transition);
+}
