@@ -4,7 +4,7 @@ import Toast_Handelar from "../Assets/Utils/Toast_Handelar";
 
 function Auth(props) {
   // handle logout basics to remove data from browser and to tell database the device is logout
-  const LogoutHandelar = async () => {
+  const Logout_Handelar = async () => {
     console.log("LogoutHandelar");
     try {
       const { _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
@@ -17,7 +17,7 @@ function Auth(props) {
           } else {
             localStorage.removeItem("Pinterest-Login");
             props.SetLogin(false);
-            Toast_Handelar("sussess", response.data.message);
+            Toast_Handelar("success", response.data.message);
           }
         });
     } catch (err) {
@@ -29,7 +29,7 @@ function Auth(props) {
     <React.Fragment>
       <div className="Auth">
         <h1>Auth</h1>
-        <button onClick={() => LogoutHandelar()}>Logout</button>
+        <button onClick={() => Logout_Handelar()}>Logout</button>
       </div>
     </React.Fragment>
   );

@@ -11,7 +11,7 @@ function Login(props) {
     password: "",
     ShowPassword: false,
   });
-  // SHow or hide password
+  // Show or hide password
   const HandelSeePassword = () => {
     const colne_user_data = { ...User };
     colne_user_data.ShowPassword = !colne_user_data.ShowPassword;

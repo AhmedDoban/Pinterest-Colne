@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import BlurCircle from "../../Assets/Components/Blur Circle/BlurCircle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
+import Toast_Handelar from "../../Assets/Utils/Toast_Handelar";
+import axios from "axios";
 
 function Register() {
+  // To go to login page after User Successfully login
+  const Navigate = useNavigate("");
+  // input form data
   const [User, SetUser] = useState({
     email: "",
     password: "",
@@ -11,15 +16,38 @@ function Register() {
     LastName: "",
     ShowPassword: false,
   });
+  // Show or hide password
   const HandelSeePassword = () => {
     const colne_user_data = { ...User };
     colne_user_data.ShowPassword = !colne_user_data.ShowPassword;
     SetUser(colne_user_data);
   };
+  // handle inputs from the form to the object USER
   const HandleInput = (e) => {
     SetUser({ ...User, [e.name]: e.value });
   };
-
+  // handle Register button with the database api
+  const Handle_Register = async () => {
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API}/Users/Register`, {
+          FirstName: User.FirstName,
+          LastName: User.LastName,
+          email: User.email,
+          password: User.password,
+        })
+        .then((res) => {
+          if (res.data.Status === "Faild") {
+            Toast_Handelar("error", res.data.message);
+          } else {
+            Toast_Handelar("success", res.data.message);
+            Navigate("/");
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "can't connect to the database");
+    }
+  };
   return (
     <React.Fragment>
       <div className="Register">
@@ -93,7 +121,7 @@ function Register() {
                 when register you will accept all privilege
               </p>
               <div className="Register-box">
-                <button>Register now</button>
+                <button onClick={() => Handle_Register()}>Register now</button>
               </div>
             </div>
             <span className="other-action-span">or continue with</span>
