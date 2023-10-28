@@ -3,7 +3,7 @@ import BlurCircle from "../../Assets/Components/Blur Circle/BlurCircle";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import Toast_Handelar from "../../Assets/Utils/Toast_Handelar";
 
 function Login(props) {
   const [User, SetUser] = useState({
@@ -11,15 +11,17 @@ function Login(props) {
     password: "",
     ShowPassword: false,
   });
+  // SHow or hide password
   const HandelSeePassword = () => {
     const colne_user_data = { ...User };
     colne_user_data.ShowPassword = !colne_user_data.ShowPassword;
     SetUser(colne_user_data);
   };
+  // handle inputs from the form to the object USER
   const HandleInput = (e) => {
     SetUser({ ...User, [e.name]: e.value });
   };
-
+  // handle login button with the database api
   const LoginHandelar = async () => {
     try {
       await axios
@@ -29,16 +31,7 @@ function Login(props) {
         })
         .then((response) => {
           if (response.data.Status === "Faild") {
-            toast.error(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: localStorage.getItem("theme"),
-            });
+            Toast_Handelar("error", response.data.message);
           } else {
             localStorage.setItem(
               "Pinterest-Login",
@@ -48,16 +41,7 @@ function Login(props) {
           }
         });
     } catch (err) {
-      toast.error("can't connect to the database", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: localStorage.getItem("theme"),
-      });
+      Toast_Handelar("error", "can't connect to the database");
     }
   };
 
@@ -124,7 +108,6 @@ function Login(props) {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }
