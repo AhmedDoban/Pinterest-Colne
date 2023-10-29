@@ -40,10 +40,11 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 15px;
 }
-.CardPreview .actions i {
+.CardPreview .actions > i,
+.CardPreview .actions .other-action-menu > i {
   font-size: 16px;
   font-weight: bolder;
   color: var(--main-p-color);
@@ -56,11 +57,111 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.5;
+  backdrop-filter: blur(50px);
   transition: var(--main-transition);
 }
-.CardPreview .actions i:hover {
+.CardPreview .actions > i:hover,
+.CardPreview .actions .other-action-menu > i:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
+  opacity: 1;
+}
+.CardPreview .actions .other-action-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.CardPreview .actions .other-action-menu .menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 0.5em;
+  scale: 0;
+  opacity: 0;
+  z-index: -1;
+  transform-origin: top center;
+  backdrop-filter: blur(50px);
+  transition: var(--main-transition);
+}
+.CardPreview .actions .other-action-menu .menu::after {
+  position: absolute;
+  content: "";
+  border-color: transparent transparent var(--input-color) transparent;
+  border-width: 10px;
+  border-style: solid;
+  top: -3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 0.5;
+}
+.CardPreview .actions .other-action-menu .menu::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  background-color: var(--input-color);
+  transition: var(--main-transition);
+  border-radius: 0.5em;
+}
+.CardPreview .actions .other-action-menu .menu.active {
+  scale: 1;
+  opacity: 1;
+  z-index: 2;
+}
+.CardPreview .actions .other-action-menu .menu p,
+.CardPreview .actions .other-action-menu .menu > i {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 0.5em;
+  opacity: 0.5;
+  font-size: 14px;
+  font-weight: bolder;
+  color: var(--main-p-color);
+  transition: var(--main-transition);
+}
+.CardPreview .actions .other-action-menu .menu p:hover,
+.CardPreview .actions .other-action-menu .menu > i:hover {
+  opacity: 1;
+  color: var(--primary-color);
+  stroke: var(--input-color);
+}
+
+.CardPreview .actions .other-action-menu .menu img {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.CardPreview .actions .other-action-menu .menu .USER_NAME {
+  position: relative;
+  font-size: 16px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-lr;
+  letter-spacing: 1px;
+  transition: var(--main-transition);
+  color: var(--primary-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Card Preview container img container

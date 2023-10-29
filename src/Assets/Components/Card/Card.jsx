@@ -69,7 +69,9 @@ function Card(props) {
           </div>
         </div>
       </div>
-      {Preview ? <CardPreview Img={props.Img} SetPreview={SetPreview} /> : null}
+      {Preview ? (
+        <CardPreview Img={props.Img} SetPreview={SetPreview} User={User} />
+      ) : null}
     </React.Fragment>
   );
 }
