@@ -1,0 +1,87 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card Preview
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CardPreview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+  transition: var(--main-transition);
+}
+.CardPreview::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-bg-color);
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card Preview container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CardPreview .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)) !important;
+  gap: 0;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card Preview container action
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CardPreview .actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 15px;
+}
+.CardPreview .actions i {
+  font-size: 16px;
+  font-weight: bolder;
+  color: var(--main-p-color);
+  box-shadow: var(--main-box-shadow);
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 0.5em;
+  background-color: var(--input-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--main-transition);
+}
+.CardPreview .actions i:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card Preview container img container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CardPreview .img-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CardPreview .img-container img {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  height: fit-content;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.5em;
+}

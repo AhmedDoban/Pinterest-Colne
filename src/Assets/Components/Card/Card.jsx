@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Card.css";
 import axios from "axios";
+import CardPreview from "./Card Preview/CardPreview";
 
 function Card(props) {
   const [User, SetUser] = useState({});
-  console.log(User);
+  const [Preview, SetPreview] = useState(false);
+
   useEffect(() => {
     const Get_User = async () => {
       try {
@@ -35,11 +37,12 @@ function Card(props) {
 
   return (
     <React.Fragment>
-      <div className="card" key={props.Img._id}>
+      <div className="card" key={props.Img._id} data-aos="fade-up">
         <div className="img">
           <img
             src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.url}`}
             alt={props.Img.name}
+            onClick={() => SetPreview(true)}
           />
         </div>
         <div className="info">
@@ -66,6 +69,7 @@ function Card(props) {
           </div>
         </div>
       </div>
+      {Preview ? <CardPreview Img={props.Img} SetPreview={SetPreview} /> : null}
     </React.Fragment>
   );
 }
