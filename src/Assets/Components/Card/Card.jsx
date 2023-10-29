@@ -37,7 +37,7 @@ function Card(props) {
 
   return (
     <React.Fragment>
-      <div className="card" key={props.Img._id} data-aos="fade-up">
+      <div className="Maincard" key={props.Img._id} data-aos="fade-up">
         <div className="img">
           <img
             src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.url}`}
@@ -47,10 +47,16 @@ function Card(props) {
         </div>
         <div className="info">
           <h3>{props.Img.name}</h3>
-          <p>
-            <i className="fa-solid fa-thumbtack" />
-            <span>{props.Img.Pined}</span>
-          </p>
+          <div className="actions">
+            <p>
+              <i className="fa-solid fa-thumbtack" />
+              <span>{props.Img.Pined}</span>
+            </p>
+            <p>
+              <i className="fa-regular fa-heart" />
+              <span>{props.Img.Loves}</span>
+            </p>
+          </div>
         </div>
         <div className="user">
           <img

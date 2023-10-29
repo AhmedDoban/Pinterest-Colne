@@ -137,10 +137,12 @@
   transition: var(--main-transition);
 }
 .CardPreview .actions .other-action-menu .menu p:hover,
-.CardPreview .actions .other-action-menu .menu > i:hover {
+.CardPreview .actions .other-action-menu .menu > i:hover,
+.CardPreview .actions .other-action-menu .menu p.active,
+.CardPreview .actions .other-action-menu .menu > i.active {
   opacity: 1;
   color: var(--primary-color);
-  stroke: var(--input-color);
+  transform: scale(1.1);
 }
 
 .CardPreview .actions .other-action-menu .menu img {

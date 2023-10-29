@@ -1,7 +1,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Card
+# Main card
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.card {
+.Maincard {
   position: relative;
   display: flex;
   width: 100%;
@@ -13,9 +13,9 @@
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# card Image
+# Maincard Image
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.card .img {
+.Maincard .img {
   position: relative;
   width: 100%;
   height: 300px;
@@ -23,74 +23,100 @@
   overflow: hidden;
   transition: var(--main-transition);
 }
-.card .img img {
+.Maincard .img img {
   position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: var(--main-transition);
 }
-.card:hover {
+.Maincard:hover {
   box-shadow: var(--main-box-shadow);
 }
-.card:hover .img img {
+.Maincard:hover .img img {
   transform: scale(1.1);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# card info
+# Maincard info
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.card .info {
+.Maincard .info {
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
+  gap: 10px;
   transition: var(--main-transition);
 }
-.card .info h3 {
+.Maincard .info h3 {
   color: var(--primary-dark-color);
   font-weight: 600;
   font-size: 16px;
   transition: var(--main-transition);
 }
-.card .info p {
+.Maincard .info .actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Maincard .info p {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  transition: var(--main-transition);
+}
+.Maincard .info p:hover,
+.Maincard .info p.active {
+  color: var(--primary-color);
+  transform: scale(1.1);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Card user
+# Maincard user
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.card .user {
+.Maincard .user {
   position: relative;
   display: flex;
   gap: 10px;
 }
-.card .user .data {
+.Maincard .user .data {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  overflow: hidden;
 }
-.card .user .data .tags {
+.Maincard .user .data h4 {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary-dark-color);
+  transform: translateY(50%);
+  transition: var(--main-transition);
+}
+
+.Maincard .user .data .tags {
   position: relative;
   display: flex;
   gap: 10px;
   color: var(--primary-dark-color);
   transition: var(--main-transition);
+  transform: translateY(100%);
 }
-.card .user .data .tags span {
+.Maincard:hover .user .data .tags,
+.Maincard:hover .user .data h4 {
+  transform: translateY(0%);
+}
+.Maincard .user .data .tags span {
   position: relative;
   font-size: 12px;
   letter-spacing: 1px;
-}
-.card .user .data h4 {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--primary-dark-color);
   transition: var(--main-transition);
 }
-.card .user img {
+.Maincard .user .data .tags span:hover {
+  color: var(--primary-color);
+}
+.Maincard .user img {
   position: relative;
   width: 35px;
   height: 35px;
