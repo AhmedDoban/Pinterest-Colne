@@ -4,7 +4,6 @@ import Guest from "./Guest/Guest";
 import "normalize.css";
 import "./Assets/Css/root.css";
 import "./Assets/Css/style.css";
-import axios from "axios";
 
 function App() {
   const [Login, SetLogin] = useState(false);

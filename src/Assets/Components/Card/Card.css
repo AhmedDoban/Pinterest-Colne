@@ -1,0 +1,99 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-radius: 0.5em;
+  transition: var(--main-transition);
+  cursor: pointer;
+  padding: 10px;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# card Image
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.card .img {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+.card .img img {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: var(--main-transition);
+}
+.card:hover {
+  box-shadow: var(--main-box-shadow);
+}
+.card:hover .img img {
+  transform: scale(1.1);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# card info
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.card .info {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  transition: var(--main-transition);
+}
+.card .info h3 {
+  color: var(--primary-dark-color);
+  font-weight: 600;
+  font-size: 16px;
+  transition: var(--main-transition);
+}
+.card .info p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card user
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.card .user {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+.card .user .data {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card .user .data .tags {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  color: var(--primary-dark-color);
+  transition: var(--main-transition);
+}
+.card .user .data .tags span {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.card .user .data h4 {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary-dark-color);
+  transition: var(--main-transition);
+}
+.card .user img {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}

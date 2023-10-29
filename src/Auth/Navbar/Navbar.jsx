@@ -35,7 +35,7 @@ function Navbar(props) {
               alt="Logo"
             />
           </Link>
-          <div className="search">
+          <div className="search" to="/">
             <i className="fa-solid fa-magnifying-glass"></i>
             <input type="search" placeholder="Search" />
           </div>

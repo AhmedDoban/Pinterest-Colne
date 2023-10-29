@@ -2,10 +2,13 @@
 # Navbar
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .navbar {
-  position: relative;
+  position: sticky !important;
+  top: 0;
+  background-color: var(--primary-bg-color);
   height: 62px;
   transition: var(--main-transition);
   border-bottom: 0.5px solid rgba(199, 199, 199, 0.533);
+  z-index: 2;
 }
 .navbar .container {
   display: flex;
