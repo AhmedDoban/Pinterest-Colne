@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Card.css";
 import axios from "axios";
 import CardPreview from "./Card Preview/CardPreview";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   const [User, SetUser] = useState({});
@@ -59,10 +60,13 @@ function Card(props) {
           </div>
         </div>
         <div className="user">
-          <img
-            src={`${process.env.REACT_APP_API_UPLOADS}/${User.Avatar}`}
-            alt={User.FirstName}
-          />
+          <Link to={`User/${User._id}`}>
+            <img
+              src={`${process.env.REACT_APP_API_UPLOADS}/${User.Avatar}`}
+              alt={User.FirstName}
+            />
+          </Link>
+
           <div className="data">
             <h4>
               {User.FirstName} {User.LastName}

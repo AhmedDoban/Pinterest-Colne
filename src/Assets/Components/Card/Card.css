@@ -116,10 +116,16 @@
 .Maincard .user .data .tags span:hover {
   color: var(--primary-color);
 }
-.Maincard .user img {
+.Maincard .user a {
   position: relative;
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  object-fit: cover;
+  overflow: hidden;
+}
+.Maincard .user a img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
