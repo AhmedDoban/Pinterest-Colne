@@ -70,14 +70,9 @@
   align-items: center;
   gap: 15px;
   padding: 20px;
-  scale: 0;
-  opacity: 0;
   transition: var(--main-transition);
 }
-.AddNewImage .container .addCard.active {
-  scale: 1;
-  opacity: 1;
-}
+
 @media (max-width: 772px) {
   .AddNewImage .container .addCard {
     flex-direction: column;
@@ -166,8 +161,8 @@
 }
 .AddNewImage .container .addCard .left label::before {
   position: absolute;
-  content: "Choose an image";
-  bottom: 10px;
+  content: "Choose an Image";
+  bottom: 0px;
   right: 10px;
   width: fit-content;
   height: fit-content;
@@ -207,6 +202,12 @@
   background-color: transparent;
   color: var(--primary-dark-color);
 }
+.AddNewImage .container .addCard .right .Upload-box {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
 .AddNewImage .container .addCard .right .add-box button,
 .AddNewImage .container .addCard .right .Upload-box button {
   position: relative;
@@ -223,6 +224,9 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
+}
+.AddNewImage .container .addCard .right .Upload-box button {
+  font-size: 14px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Add New Image main card right Tags

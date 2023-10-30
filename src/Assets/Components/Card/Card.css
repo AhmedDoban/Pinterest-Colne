@@ -10,6 +10,7 @@
   cursor: pointer;
   padding: 10px;
   transition: var(--main-transition);
+  height: fit-content;
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

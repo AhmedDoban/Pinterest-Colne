@@ -3,7 +3,7 @@ import "./AddNewImage.css";
 import BlurCircle from "./../../Assets/Components/Blur Circle/BlurCircle";
 import Toast_Handelar from "../../Assets/Utils/Toast_Handelar";
 import axios from "axios";
-function AddNewImage() {
+function AddNewImage(props) {
   // local state storage for some handelar
   const [AddCard, SetAddCard] = useState(false);
   const [NewImageUrl, SetNewImageUrl] = useState("");
@@ -73,10 +73,11 @@ function AddNewImage() {
     setProgress(0);
   };
   // call the api if the all data are right
-  const HandleUPloadNewImage = async () => {
+  const HandleUPloadNewImage = async (ex_not) => {
     const { _id, Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
     if (NewImage.name !== "" && NewImageUrl !== "") {
+      props.SetUpload(true);
       await axios
         .post(
           `${process.env.REACT_APP_API}/Images/Upload_IMG`,
@@ -101,6 +102,7 @@ function AddNewImage() {
           if (res.data.Status === "Faild") {
             Toast_Handelar("error", res.data.message);
           } else {
+            if (ex_not === "exit") SetAddCard(false);
             SetNewImage({
               name: "",
               TagInput: "",
@@ -108,7 +110,7 @@ function AddNewImage() {
               Tags: [],
             });
             SetNewImageUrl("");
-            setProgress(0);
+            props.SetUpload(false);
             Toast_Handelar("success", res.data.message);
           }
         });
@@ -128,7 +130,10 @@ function AddNewImage() {
         />
         {AddCard && (
           <div className="container">
-            <div className={AddCard ? "addCard active" : "addCard"}>
+            <div
+              className={AddCard ? "addCard active" : "addCard"}
+              data-aos="zoom-in"
+            >
               <BlurCircle />
               <i
                 className="fa-solid fa-xmark"
@@ -191,9 +196,13 @@ function AddNewImage() {
                   <button onClick={() => HandleTagsFunction()}>Add Tag</button>
                 </div>
                 <div className="Upload-box">
-                  <button onClick={() => HandleUPloadNewImage()}>
+                  <button onClick={() => HandleUPloadNewImage("Not")}>
                     <i className="fa-solid fa-cloud-arrow-up" />
-                    Upload image
+                    Upload
+                  </button>
+                  <button onClick={() => HandleUPloadNewImage("exit")}>
+                    <i className="fa-solid fa-cloud-arrow-up" />
+                    Upload & exit
                   </button>
                 </div>
                 <div className="Tags-box">
