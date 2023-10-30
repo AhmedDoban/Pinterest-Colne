@@ -72,7 +72,7 @@ function Register() {
               <div className="infomation-box">
                 <div className="input-box">
                   <input
-                    type="text"
+                    type="search"
                     value={User.FirstName}
                     onChange={(e) => HandleInput(e.target)}
                     name="FirstName"

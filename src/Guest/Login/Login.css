@@ -127,7 +127,6 @@
   max-width: 100%;
   border-radius: 10px;
   background: var(--input-color);
-  padding: 10px;
   transition: var(--main-transition);
 }
 @media (max-width: 1200px) {
@@ -137,9 +136,12 @@
   }
 }
 .login .container .right .form .input-box input {
+  position: relative;
   width: 100%;
   height: 100%;
   border: 0;
+  padding: 10px;
+  border-radius: 10px;
   background-color: transparent;
   color: var(--primary-dark-color);
   transition: var(--main-transition);
@@ -169,6 +171,7 @@
   color: var(--main-p-color);
   cursor: pointer;
   transition: var(--main-transition);
+  margin-right: 15px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # login right other-action-span

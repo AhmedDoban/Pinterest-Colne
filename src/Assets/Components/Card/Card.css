@@ -98,6 +98,7 @@
 .Maincard .user .data .tags {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   color: var(--primary-dark-color);
   transition: var(--main-transition);
@@ -112,6 +113,8 @@
   font-size: 12px;
   letter-spacing: 1px;
   transition: var(--main-transition);
+  width: fit-content;
+  text-wrap: nowrap;
 }
 .Maincard .user .data .tags span:hover {
   color: var(--primary-color);

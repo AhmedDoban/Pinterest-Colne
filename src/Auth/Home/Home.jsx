@@ -4,6 +4,7 @@ import Card from "../../Assets/Components/Card/Card";
 import Toast_Handelar from "../../Assets/Utils/Toast_Handelar";
 import "./Home.css";
 import CardLoader from "./../../Assets/Components/Card Loader/CardLoader";
+import AddNewImage from "../Add New Image/AddNewImage";
 
 function Home() {
   const [DataImg, SetDataImg] = useState([]);
@@ -54,6 +55,7 @@ function Home() {
             <Card Img={Img} />
           ))}
           {Loading && <CardLoader />}
+          <AddNewImage />
         </div>
       </div>
     </React.Fragment>

@@ -134,7 +134,6 @@
   height: 50px;
   border-radius: 10px;
   background: var(--input-color);
-  padding: 10px;
   transition: var(--main-transition);
 }
 @media (max-width: 1200px) {
@@ -143,9 +142,12 @@
   }
 }
 .Register .container .right .form .input-box input {
+  position: relative;
   width: 100%;
   height: 100%;
   border: 0;
+  border-radius: 10px;
+  padding: 10px;
   background-color: transparent;
   color: var(--primary-dark-color);
   transition: var(--main-transition);
@@ -175,6 +177,7 @@
   color: var(--main-p-color);
   cursor: pointer;
   transition: var(--main-transition);
+  margin-right: 15px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Register right other-action-span
