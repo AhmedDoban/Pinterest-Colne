@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddNewImage.css";
 import BlurCircle from "./../../Assets/Components/Blur Circle/BlurCircle";
 import Toast_Handelar from "../../Assets/Utils/Toast_Handelar";
@@ -77,7 +77,6 @@ function AddNewImage(props) {
     const { _id, Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
     if (NewImage.name !== "" && NewImageUrl !== "") {
-      props.SetUpload(true);
       await axios
         .post(
           `${process.env.REACT_APP_API}/Images/Upload_IMG`,
@@ -109,8 +108,8 @@ function AddNewImage(props) {
               Url: "",
               Tags: [],
             });
+            window.location.reload();
             SetNewImageUrl("");
-            props.SetUpload(false);
             Toast_Handelar("success", res.data.message);
           }
         });

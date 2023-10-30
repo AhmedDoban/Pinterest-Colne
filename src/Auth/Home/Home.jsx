@@ -10,28 +10,7 @@ function Home() {
   const [DataImg, SetDataImg] = useState([]);
   const [Page, SetPage] = useState(1);
   const [Loading, SetLoadin] = useState(true);
-  const [Upload, SetUpload] = useState(false);
 
-  // if the user add new image update the feed with new data
-  useEffect(() => {
-    const GetData = async () => {
-      try {
-        SetLoadin(true);
-        await axios.get(`${process.env.REACT_APP_API}/Images`).then((Res) => {
-          if (Res.data.Status === "Faild") {
-            Toast_Handelar("error", Res.data.message);
-            SetLoadin(false);
-          } else {
-            SetDataImg((prev) => [...Res.data.Data]);
-            SetLoadin(false);
-          }
-        });
-      } catch (err) {
-        Toast_Handelar("error", "Something happens wrong");
-      }
-    };
-    GetData();
-  }, [Upload]);
   // add new images with changes in page
   useEffect(() => {
     const GetData = async () => {
@@ -54,6 +33,7 @@ function Home() {
     };
     GetData();
   }, [Page]);
+
   // when scroll change the page with page+=1
   const HandleScroll = () => {
     if (
@@ -77,7 +57,7 @@ function Home() {
             <Card Img={Img} />
           ))}
           {Loading && <CardLoader />}
-          <AddNewImage SetUpload={SetUpload} />
+          <AddNewImage />
         </div>
       </div>
     </React.Fragment>
