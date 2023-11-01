@@ -1,0 +1,32 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Posts
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Posts {
+  position: relative;
+  padding-top: calc(var(--main-padding-top) / 1);
+  padding-bottom: calc(var(--main-padding-bottom) / 1);
+}
+.Posts .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.Posts .Seemore {
+  position: relative;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 0 auto;
+  border-radius: 0.5em;
+  border: 0;
+  min-width: 150px;
+  max-width: 100%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: var(--blue-box-shadow);
+  cursor: pointer;
+  transition: var(--main-transition);
+}

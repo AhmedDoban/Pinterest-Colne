@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./AddNewImage.css";
 import BlurCircle from "./../../Assets/Components/Blur Circle/BlurCircle";
 import Toast_Handelar from "../../Assets/Utils/Toast_Handelar";

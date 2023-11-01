@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
 
-const Toast_Handelar = (Type, Message) => {
+const Toast_Handelar = (Type, Message, posstion) => {
   const Seting = {
-    position: "top-right",
+    position: posstion ? posstion : "top-right",
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,

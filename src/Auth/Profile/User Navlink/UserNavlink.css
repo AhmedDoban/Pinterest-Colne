@@ -1,0 +1,44 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# User Navlink
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.UserNavlink {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding-top: calc(var(--main-padding-top) / 2);
+  padding-bottom: calc(var(--main-padding-bottom) / 5);
+  border-bottom: 1px solid var(--input-color);
+}
+@media (max-width: 772px) {
+  .UserNavlink {
+    justify-content: center;
+    gap: 30px;
+  }
+}
+.UserNavlink li .action {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  padding: 5px;
+  color: var(--main-p-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.UserNavlink li .action.active,
+.UserNavlink li .action:hover {
+  color: var(--primary-color);
+}
+.UserNavlink li .action span {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.UserNavlink li .action p {
+  font-weight: 700;
+  color: inherit;
+}

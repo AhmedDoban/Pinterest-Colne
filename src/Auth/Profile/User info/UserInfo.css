@@ -1,0 +1,154 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# User info
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.UserInfo {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: var(--main-padding-top);
+  transition: var(--main-transition);
+}
+@media (max-width: 772px) {
+  .UserInfo {
+    flex-direction: column-reverse;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# User info left
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.UserInfo .left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+@media (max-width: 772px) {
+  .UserInfo .left {
+    flex-direction: column;
+  }
+}
+.UserInfo .left img {
+  position: relative;
+  min-width: 150px;
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--main-box-shadow);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# User info left data
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.UserInfo .left .data {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 772px) {
+  .UserInfo .left .data {
+    align-items: center;
+  }
+}
+.UserInfo .left .data h3 {
+  position: relative;
+  font-weight: bolder;
+  font-size: 25px;
+  color: var(--primary-color);
+  transition: var(--main-transition);
+}
+
+.UserInfo .left .data p {
+  position: relative;
+  color: var(--main-p-color);
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: justify;
+  transition: var(--main-transition);
+}
+@media (max-width: 772px) {
+  .UserInfo .left .data p {
+    text-align: center;
+  }
+}
+.UserInfo .left .data .social {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: var(--main-transition);
+}
+.UserInfo .left .data .social a {
+  position: relative;
+  color: var(--main-p-color);
+  font-size: 16px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 12px 0 0;
+  border-radius: 0.5em;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+.UserInfo .left .data .social a span {
+  opacity: 0;
+}
+.UserInfo .left .data .social a:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: var(--blue-box-shadow);
+  min-width: 150px;
+  max-width: 100%;
+  padding: 0 12px;
+}
+.UserInfo .left .data .social a:hover span {
+  opacity: 1;
+}
+.UserInfo .left .data .follow-action button {
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 0.5em;
+  border: 0;
+  min-width: 150px;
+  max-width: 100%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: var(--blue-box-shadow);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# User info right
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@media (max-width: 772px) {
+  .UserInfo .right {
+    align-self: flex-end;
+  }
+}
+.UserInfo .right a {
+  position: relative;
+  font-size: 18px;
+  font-weight: bolder;
+  color: var(--main-p-color);
+  box-shadow: var(--main-box-shadow);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5em;
+  background-color: var(--input-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  backdrop-filter: blur(50px);
+  transition: var(--main-transition);
+}
+.UserInfo .right a:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  opacity: 1;
+}

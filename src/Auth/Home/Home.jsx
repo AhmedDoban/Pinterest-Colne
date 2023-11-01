@@ -10,9 +10,13 @@ function Home() {
   const [DataImg, SetDataImg] = useState([]);
   const [Page, SetPage] = useState(1);
   const [Loading, SetLoadin] = useState(true);
+  const [EndData, SetEndData] = useState(false);
 
   // add new images with changes in page
   useEffect(() => {
+    if (EndData) {
+      return;
+    }
     const GetData = async () => {
       try {
         SetLoadin(true);
@@ -25,12 +29,21 @@ function Home() {
             } else {
               SetDataImg((prev) => [...prev, ...Res.data.Data]);
               SetLoadin(false);
+              if (Res.data.Data.length === 0) {
+                SetEndData(true);
+                Toast_Handelar(
+                  "",
+                  "Awesome, you reached all the data 😮",
+                  "bottom-center"
+                );
+              }
             }
           });
       } catch (err) {
         Toast_Handelar("error", "Something happens wrong");
       }
     };
+
     GetData();
   }, [Page]);
 
@@ -56,7 +69,7 @@ function Home() {
           {DataImg.map((Img) => (
             <Card Img={Img} />
           ))}
-          {Loading && <CardLoader />}
+          {Loading && !EndData ? <CardLoader /> : null}
           <AddNewImage />
         </div>
       </div>
