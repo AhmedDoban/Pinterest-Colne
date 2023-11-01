@@ -5,6 +5,7 @@ import Card from "../../../Assets/Components/Card/Card";
 import Toast_Handelar from "../../../Assets/Utils/Toast_Handelar";
 import axios from "axios";
 import CardLoader from "../../../Assets/Components/Card Loader/CardLoader";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Secret() {
   const Param = useParams();
@@ -36,13 +37,6 @@ function Secret() {
             } else {
               SetSecret(Res.data.Data);
               SetLoadin(false);
-              if (Res.data.Data.length === 0) {
-                Toast_Handelar(
-                  "",
-                  "Awesome, you reached all the data 😮",
-                  "bottom-center"
-                );
-              }
             }
           });
       } catch (err) {
@@ -50,18 +44,31 @@ function Secret() {
       }
     };
     GetData();
-  }, [Param.User_id, Token]);
+  }, [Param.User_id]);
 
   return (
     <React.Fragment>
       <div className="Secret">
-        <div className="container">
-          {Secret.slice(0, More).map((Img) => (
-            <Card Img={Img} />
-          ))}
-        </div>
-        {Loading && <CardLoader />}
-
+        {Secret.length > 0 ? (
+          <React.Fragment>
+            <div className="container">
+              {Secret.slice(0, More).map((Img) => (
+                <Card Img={Img} />
+              ))}
+              {Loading && <CardLoader />}
+            </div>
+          </React.Fragment>
+        ) : (
+          <div className="no_data">
+            <Player
+              autoplay
+              loop
+              src={require("./../../../Assets/Images/Image.json")}
+              style={{ height: "300px", width: "300px" }}
+            />
+            <p>There is no secrets 😊</p>
+          </div>
+        )}
         {Secret.length > More && (
           <button
             onClick={() => SetMore((prev) => prev + 10)}

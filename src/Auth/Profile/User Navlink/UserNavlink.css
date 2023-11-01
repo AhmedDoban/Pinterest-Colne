@@ -15,7 +15,7 @@
 @media (max-width: 772px) {
   .UserNavlink {
     justify-content: center;
-    gap: 30px;
+    gap: 10px;
   }
 }
 .UserNavlink li .action {

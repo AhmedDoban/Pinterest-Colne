@@ -5,6 +5,7 @@
   position: relative;
   padding-top: calc(var(--main-padding-top) / 1);
   padding-bottom: calc(var(--main-padding-bottom) / 1);
+  overflow: hidden;
 }
 .Posts .container {
   position: relative;
@@ -29,4 +30,11 @@
   box-shadow: var(--blue-box-shadow);
   cursor: pointer;
   transition: var(--main-transition);
+}
+.Posts .no_data {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
