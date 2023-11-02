@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import "./Card.css";
 import CardPreview from "./Card Preview/CardPreview";
 import { Link } from "react-router-dom";
+import Handle_Secret from "../../Utils/Handle_Secrets";
 
 function Card(props) {
   const [Preview, SetPreview] = useState(false);
+
+  const Condetion =
+    props.Img.User_id ===
+    JSON.parse(localStorage.getItem("Pinterest-Login"))._id;
 
   return (
     <React.Fragment>
@@ -27,20 +32,45 @@ function Card(props) {
               <i className="fa-regular fa-heart" />
               <span>{props.Img.Loves}</span>
             </p>
+            {Condetion ? (
+              <p
+                onClick={() =>
+                  Handle_Secret(
+                    props.Img.User_id,
+                    props.Img._id,
+                    props.SetReloadPage,
+                    props.ReloadPage
+                  )
+                }
+              >
+                <i
+                  className={
+                    props.ShowElemnt === true
+                      ? "fa-solid fa-eye"
+                      : "fa-solid fa-eye-slash"
+                  }
+                />
+              </p>
+            ) : null}
           </div>
         </div>
         <div className="user">
-          <Link to={`User/${props.Img.User_id}`}>
-            <img
-              src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.User.Avatar}`}
-              alt={props.Img.User.FirstName}
-            />
-          </Link>
+          {props.ShowUSer === "true" ? (
+            <Link to={`User/${props.Img.User_id}`}>
+              <img
+                src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.User.Avatar}`}
+                alt={props.Img.User.FirstName}
+              />
+            </Link>
+          ) : null}
 
           <div className="data">
-            <h4>
-              {props.Img.User.FirstName} {props.Img.User.LastName}
-            </h4>
+            {props.ShowUSer === "true" ? (
+              <h4>
+                {props.Img.User.FirstName} {props.Img.User.LastName}
+              </h4>
+            ) : null}
+
             <div className="tags">
               {props.Img?.Tags.length > 0 ? (
                 props.Img?.Tags.map((tag) => <span>{tag}</span>)
@@ -56,6 +86,9 @@ function Card(props) {
           Img={props.Img}
           SetPreview={SetPreview}
           User={props.Img.User}
+          ShowElemnt={props.ShowElemnt}
+          SetReloadPage={props.SetReloadPage}
+          ReloadPage={props.ReloadPage}
         />
       ) : null}
     </React.Fragment>

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import Navbar from "./Navbar/Navbar";
 import "./Auth.css";
 import Loading from "../Assets/Components/Loading/Loading";
@@ -7,6 +7,7 @@ const Home = lazy(() => import("./Home/Home"));
 const Profile = lazy(() => import("./Profile/Profile"));
 
 function Auth(props) {
+  const [ReloadPage, SetReloadPage] = useState(false);
   return (
     <React.Fragment>
       <div className="Auth">
@@ -17,8 +18,21 @@ function Auth(props) {
         />
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="" element={<Home />} />
-            <Route path="/User/:User_id" element={<Profile />}>
+            <Route
+              path=""
+              element={
+                <Home ReloadPage={ReloadPage} SetReloadPage={SetReloadPage} />
+              }
+            />
+            <Route
+              path="/User/:User_id"
+              element={
+                <Profile
+                  ReloadPage={ReloadPage}
+                  SetReloadPage={SetReloadPage}
+                />
+              }
+            >
               <Route path="" exact />
               <Route path="Secret" />
             </Route>

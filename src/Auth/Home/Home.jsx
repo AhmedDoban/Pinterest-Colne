@@ -6,7 +6,7 @@ import "./Home.css";
 import CardLoader from "./../../Assets/Components/Card Loader/CardLoader";
 import AddNewImage from "../Add New Image/AddNewImage";
 
-function Home() {
+function Home(props) {
   const [DataImg, SetDataImg] = useState([]);
   const [Page, SetPage] = useState(1);
   const [Loading, SetLoadin] = useState(true);
@@ -67,7 +67,13 @@ function Home() {
       <div className="Home">
         <div className="container">
           {DataImg.map((Img) => (
-            <Card Img={Img} />
+            <Card
+              Img={Img}
+              ShowUSer="true"
+              ShowElemnt={false}
+              SetReloadPage={props.SetReloadPage}
+              ReloadPage={props.ReloadPage}
+            />
           ))}
           {Loading && !EndData ? <CardLoader /> : null}
           <AddNewImage />

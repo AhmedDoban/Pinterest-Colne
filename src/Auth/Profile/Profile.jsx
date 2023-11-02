@@ -9,7 +9,7 @@ const Posts = lazy(() => import("./Posts/Posts"));
 const Secret = lazy(() => import("./Secret/Secret"));
 const AddNewImage = lazy(() => import("./../Add New Image/AddNewImage"));
 
-function Profile() {
+function Profile(props) {
   const [ProfileData, SetProfileData] = useState({});
   const { Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   const Param = useParams();
@@ -40,7 +40,7 @@ function Profile() {
       }
     };
     GetData();
-  }, [Param.User_id, Token]);
+  }, [Param.User_id, Token, props.ReloadPage]);
 
   return (
     <React.Fragment>
@@ -49,8 +49,24 @@ function Profile() {
           <UserInfo ProfileData={ProfileData} />
           <UserNavlink ProfileData={ProfileData} />
           <Routes>
-            <Route path="" element={<Posts />} />
-            <Route path="Secret" element={<Secret />} />
+            <Route
+              path=""
+              element={
+                <Posts
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
+                />
+              }
+            />
+            <Route
+              path="Secret"
+              element={
+                <Secret
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
+                />
+              }
+            />
           </Routes>
         </div>
         <AddNewImage />

@@ -7,7 +7,7 @@ import axios from "axios";
 import CardLoader from "../../../Assets/Components/Card Loader/CardLoader";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-function Posts() {
+function Posts(props) {
   const Param = useParams();
   const [Posts, SetPosts] = useState([]);
   const [Loading, SetLoadin] = useState(true);
@@ -43,7 +43,7 @@ function Posts() {
       }
     };
     GetData();
-  }, [Param.User_id, Token]);
+  }, [Param.User_id, Token, props.ReloadPage]);
 
   return (
     <React.Fragment>
@@ -52,7 +52,13 @@ function Posts() {
           <React.Fragment>
             <div className="container">
               {Posts.slice(0, More).map((Img) => (
-                <Card Img={Img} />
+                <Card
+                  Img={Img}
+                  ShowUSer="false"
+                  ShowElemnt={false}
+                  SetReloadPage={props.SetReloadPage}
+                  ReloadPage={props.ReloadPage}
+                />
               ))}
               {Loading && <CardLoader />}
             </div>

@@ -5,7 +5,6 @@
   position: relative;
   padding-top: calc(var(--main-padding-top) / 1);
   padding-bottom: calc(var(--main-padding-bottom) / 1);
-  overflow: hidden;
 }
 .Posts .container {
   position: relative;

@@ -20,8 +20,8 @@ function AddNewImage(props) {
     setProgress(0);
     if (file.type.split("/")[0] === "image") {
       const NewImageClone = { ...NewImage, Url: file };
-      if ((file.size / 1000).toFixed(0) >= 3072) {
-        Toast_Handelar("error", "File size cannot exceed more than 3MB");
+      if ((file.size / 1000).toFixed(0) >= 1028) {
+        Toast_Handelar("error", "File size cannot exceed more than 1MB");
       } else {
         SetNewImage(NewImageClone);
         SetNewImageUrl(URL.createObjectURL(file));

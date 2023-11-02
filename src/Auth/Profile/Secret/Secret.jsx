@@ -7,7 +7,7 @@ import axios from "axios";
 import CardLoader from "../../../Assets/Components/Card Loader/CardLoader";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-function Secret() {
+function Secret(props) {
   const Param = useParams();
   const [Secret, SetSecret] = useState([]);
   const [Loading, SetLoadin] = useState(true);
@@ -44,7 +44,7 @@ function Secret() {
       }
     };
     GetData();
-  }, [Param.User_id]);
+  }, [Param.User_id, props.ReloadPage]);
 
   return (
     <React.Fragment>
@@ -53,7 +53,13 @@ function Secret() {
           <React.Fragment>
             <div className="container">
               {Secret.slice(0, More).map((Img) => (
-                <Card Img={Img} />
+                <Card
+                  Img={Img}
+                  ShowElemnt={true}
+                  ShowUSer={false}
+                  SetReloadPage={props.SetReloadPage}
+                  ReloadPage={props.ReloadPage}
+                />
               ))}
               {Loading && <CardLoader />}
             </div>
