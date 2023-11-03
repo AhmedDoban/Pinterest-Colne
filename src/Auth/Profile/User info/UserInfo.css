@@ -4,32 +4,20 @@
 .UserInfo {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  gap: 30px;
   padding-top: var(--main-padding-top);
   transition: var(--main-transition);
 }
 @media (max-width: 772px) {
   .UserInfo {
-    flex-direction: column-reverse;
-  }
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# User info left
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.UserInfo .left {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-@media (max-width: 772px) {
-  .UserInfo .left {
     flex-direction: column;
   }
 }
-.UserInfo .left img {
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# User info
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.UserInfo img {
   position: relative;
   min-width: 150px;
   max-width: 150px;
@@ -39,20 +27,20 @@
   box-shadow: var(--main-box-shadow);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# User info left data
+# User info data
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.UserInfo .left .data {
+.UserInfo .data {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 @media (max-width: 772px) {
-  .UserInfo .left .data {
+  .UserInfo .data {
     align-items: center;
   }
 }
-.UserInfo .left .data h3 {
+.UserInfo .data h3 {
   position: relative;
   font-weight: bolder;
   font-size: 25px;
@@ -60,7 +48,7 @@
   transition: var(--main-transition);
 }
 
-.UserInfo .left .data p {
+.UserInfo .data p {
   position: relative;
   color: var(--main-p-color);
   font-size: 14px;
@@ -69,46 +57,63 @@
   transition: var(--main-transition);
 }
 @media (max-width: 772px) {
-  .UserInfo .left .data p {
+  .UserInfo .data p {
     text-align: center;
   }
 }
-.UserInfo .left .data .social {
+.UserInfo .data .social {
   position: relative;
   display: flex;
   align-items: center;
   gap: 15px;
   transition: var(--main-transition);
 }
-.UserInfo .left .data .social a {
+.UserInfo .data .social a {
   position: relative;
-  color: var(--main-p-color);
-  font-size: 16px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
   width: 25px;
   height: 25px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 0 12px 0 0;
-  border-radius: 0.5em;
   overflow: hidden;
+  border-radius: 0.5em;
+  color: var(--main-p-color);
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 5px;
   transition: var(--main-transition);
 }
-.UserInfo .left .data .social a span {
-  opacity: 0;
-}
-.UserInfo .left .data .social a:hover {
+.UserInfo .data .social a:hover {
+  padding: 10px;
+  padding-left: 5px;
+  width: 120px;
+  max-width: fit-content;
   background-color: var(--primary-color);
   color: var(--white-color);
   box-shadow: var(--blue-box-shadow);
-  min-width: 150px;
-  max-width: 100%;
-  padding: 0 12px;
 }
-.UserInfo .left .data .social a:hover span {
-  opacity: 1;
+
+.UserInfo .data .button-action a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--input-color);
+  box-shadow: var(--main-box-shadow);
+  transition: var(--main-transition);
+  padding: 8px 12px;
+  border-radius: 0.5em;
+  width: fit-content;
+  color: var(--main-p-color);
 }
-.UserInfo .left .data .follow-action button {
+.UserInfo .data .button-action a:hover {
+  box-shadow: var(--blue-box-shadow);
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+.UserInfo .data .button-action button {
   position: relative;
   padding: 8px 12px;
   border-radius: 0.5em;
@@ -120,35 +125,4 @@
   box-shadow: var(--blue-box-shadow);
   cursor: pointer;
   transition: var(--main-transition);
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# User info right
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@media (max-width: 772px) {
-  .UserInfo .right {
-    align-self: flex-end;
-  }
-}
-.UserInfo .right a {
-  position: relative;
-  font-size: 18px;
-  font-weight: bolder;
-  color: var(--main-p-color);
-  box-shadow: var(--main-box-shadow);
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 0.5em;
-  background-color: var(--input-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.7;
-  backdrop-filter: blur(50px);
-  transition: var(--main-transition);
-}
-.UserInfo .right a:hover {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  opacity: 1;
 }
