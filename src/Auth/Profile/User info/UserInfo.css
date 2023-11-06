@@ -101,12 +101,11 @@
   align-items: center;
   gap: 10px;
   background-color: var(--input-color);
-  box-shadow: var(--main-box-shadow);
-  transition: var(--main-transition);
   padding: 8px 12px;
   border-radius: 0.5em;
   width: fit-content;
   color: var(--main-p-color);
+  transition: var(--main-transition);
 }
 .UserInfo .data .button-action a:hover {
   box-shadow: var(--blue-box-shadow);

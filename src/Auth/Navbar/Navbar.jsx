@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Toast_Handelar from "./../../Assets/Utils/Toast_Handelar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const { _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
+  const { _id, Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
+  const [ProfileData, SetProfileData] = useState("");
   // handle logout basics to remove data from browser and to tell database the device is logout
   const Logout_Handelar = async () => {
     try {
@@ -24,16 +25,39 @@ function Navbar(props) {
       Toast_Handelar("error", "can't connect to the database");
     }
   };
+  useEffect(() => {
+    const GetData = async () => {
+      try {
+        await axios
+          .post(
+            `${process.env.REACT_APP_API}/Users/${_id}`,
+            {},
+            {
+              headers: {
+                Authorization: Token,
+              },
+            }
+          )
+          .then((Res) => {
+            if (Res.data.Status === "Faild") {
+              Toast_Handelar("error", Res.data.message);
+            } else {
+              SetProfileData(Res.data.Data.Avatar);
+            }
+          });
+      } catch (err) {
+        Toast_Handelar("error", "Something happens wrong");
+      }
+    };
+    GetData();
+  }, []);
 
   return (
     <React.Fragment>
-      <div className="navbar">
+      <div className="NavbarAuth">
         <div className="container">
-          <Link className="logo" to="/">
-            <img
-              src={require("../../Assets/Images/logo.svg").default}
-              alt="Logo"
-            />
+          <Link className="logo" to="/" data-aos="zoom-in">
+            <img src={require("../../Assets/Images/logo.png")} alt="logo" />
           </Link>
           <div className="search" to="/">
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -54,9 +78,12 @@ function Navbar(props) {
                 />
               </div>
             </div>
-            <Link to={`/User/${_id}`}>
-              <i className="fa-solid fa-user" />
-            </Link>
+            <NavLink to={`/User/${_id}`} className="UserAvatar">
+              <img
+                src={`${process.env.REACT_APP_API_UPLOADS}/${ProfileData}`}
+                alt="USER"
+              />
+            </NavLink>
             <Link to="/">
               <i
                 className="fa-solid fa-right-from-bracket"

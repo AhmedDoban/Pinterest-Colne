@@ -19,8 +19,9 @@ function Navbar(props) {
         <div className="container">
           <Link className="logo" to="/">
             <img
-              src={require("../../Assets/Images/logo.svg").default}
+              src={require("../../Assets/Images/logo.png")}
               alt="logo"
+              data-aos="zoom-in"
             />
             <input
               type="checkbox"
@@ -28,7 +29,11 @@ function Navbar(props) {
               id="darkmode"
               checked={props.Dark}
             />
-            <label htmlFor="darkmode" onClick={() => props.HandelDarkMode()} />
+            <label
+              htmlFor="darkmode"
+              onClick={() => props.HandelDarkMode()}
+              data-aos="zoom-in"
+            />
           </Link>
           <ul className="main_nav_menu">
             <div className="language">

@@ -24,9 +24,12 @@
 }
 .navbar .container .logo img {
   position: relative;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
+  transform-origin: center center;
+  transition: var(--main-transition);
 }
+
 .navbar .container .logo > input {
   display: none;
 }

@@ -23,7 +23,8 @@
 }
 .setting .right .user-links .links-container .Select-data {
   position: relative;
-  min-width: 150px;
+  min-width: 180px;
+  max-width: 100%;
   height: 40px;
   display: flex;
   gap: 10px;
@@ -35,13 +36,16 @@
 }
 .setting .right .user-links .links-container .Select {
   position: relative;
-  min-width: 150px;
+  width: 180px;
   height: 40px;
   padding: 10px;
   background-color: var(--input-color);
   color: var(--primary-dark-color);
   border: none;
   transition: var(--main-transition);
+}
+.react-dropdown-select-dropdown {
+  background-color: var(--input-color) !important;
 }
 .setting .right .user-links .links-container .Select .drop-data {
   position: relative;

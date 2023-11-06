@@ -73,7 +73,7 @@ function Setting(props) {
   // handel delete image file
   const HandelDelteImage = () => {
     SetNewAvatarUrl("");
-    const NewDataUserClone = { ...ProfileData, Avatar: "" };
+    const NewDataUserClone = { ...ProfileData, Avatar: "Uploads/avatar.jpg" };
     SetProfileData(NewDataUserClone);
     setProgress(0);
   };
@@ -163,13 +163,15 @@ function Setting(props) {
   // Handel Change USER data in the back end
   const HandleChangePersonal = async () => {
     try {
+      const Avatar = ProfileData.Avatar === "" ? "Uploads/avatar.jpg" : null;
+
       await axios
         .post(
           `${process.env.REACT_APP_API}/Users/Setting/Personal`,
           {
             email: ProfileData.email,
             User_id: _id,
-            USER: ProfileData,
+            USER: Avatar ? { ...ProfileData, Avatar } : { ProfileData },
           },
           {
             headers: {
@@ -225,7 +227,7 @@ function Setting(props) {
 
   return (
     <React.Fragment>
-      <div className="setting">
+      <div className="setting" data-aos="fade-up">
         {Loading ? (
           <div className="loading-data">
             <Player
@@ -264,9 +266,7 @@ function Setting(props) {
                     src={
                       NewAvatarUrl
                         ? NewAvatarUrl
-                        : ProfileData.Avatar !== ""
-                        ? `${process.env.REACT_APP_API_UPLOADS}/${ProfileData.Avatar}`
-                        : `${process.env.REACT_APP_API_UPLOADS}/Uploads/avatar.jpg`
+                        : `${process.env.REACT_APP_API_UPLOADS}/${ProfileData.Avatar}`
                     }
                     alt={`${ProfileData.FirstName} ${ProfileData.LastName}`}
                   />

@@ -1,7 +1,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Navbar
+# Navbar Auth
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.navbar {
+.NavbarAuth {
   position: sticky !important;
   top: 0;
   background-color: var(--primary-bg-color);
@@ -10,32 +10,34 @@
   border-bottom: 0.5px solid rgba(199, 199, 199, 0.533);
   z-index: 2;
 }
-.navbar .container {
+.NavbarAuth .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   height: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # logo
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.navbar .container .logo {
+.NavbarAuth .container .logo {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 0px;
 }
-.navbar .container .logo img {
+.NavbarAuth .container .logo img {
   position: relative;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
+  transform-origin: center center;
+  transition: var(--main-transition);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # Search
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.navbar .container .search {
+.NavbarAuth .container .search {
   position: relative;
   display: flex;
   align-items: center;
@@ -47,7 +49,7 @@
   color: var(--main-p-color);
   transition: var(--main-transition);
 }
-.navbar .container .search input {
+.NavbarAuth .container .search input {
   width: 100%;
   height: 100%;
   border: 0;
@@ -58,13 +60,14 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # setting
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.navbar .container .setting-nav {
+.NavbarAuth .container .setting-nav {
   position: relative;
   display: flex;
   align-items: center;
+  gap: 5px;
   height: 100%;
 }
-.navbar .container .setting-nav a i {
+.NavbarAuth .container .setting-nav a i {
   position: relative;
   color: var(--main-p-color);
   transition: var(--main-transition);
@@ -76,26 +79,26 @@
   justify-content: center;
   align-items: center;
 }
-.navbar .container .setting-nav a i.active,
-.navbar .container .setting-nav a i:hover {
+.NavbarAuth .container .setting-nav a i.active,
+.NavbarAuth .container .setting-nav a i:hover {
   color: var(--primary-dark-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # Theme
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.navbar .container .setting-nav .Theme > input {
+.NavbarAuth .container .Theme > input {
   display: none;
 }
-.navbar .container .setting-nav .Theme .darkmodeimg {
+.NavbarAuth .container .Theme .darkmodeimg {
   position: relative;
   width: 30px;
   height: 30px;
 }
-.navbar .container .setting-nav .Theme .darkmodeimg label {
+.NavbarAuth .container .Theme .darkmodeimg label {
   cursor: pointer;
   transition: var(--main-transition);
 }
-.navbar .container .setting-nav .Theme label::before {
+.NavbarAuth .container .Theme label::before {
   position: absolute;
   content: "";
   display: flex;
@@ -111,7 +114,32 @@
   background-size: contain;
   transition: var(--main-transition);
 }
-.navbar .container .Theme input:checked + .darkmodeimg label::before {
+.NavbarAuth .container .Theme input:checked + .darkmodeimg label::before {
   background-image: url("../../Assets/Images/clear.png");
   transform: rotate(360deg);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Avatar
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NavbarAuth .container .setting-nav .UserAvatar {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--main-p-color);
+  transition: var(--main-transition);
+}
+.NavbarAuth .container .setting-nav .UserAvatar:hover,
+.NavbarAuth .container .setting-nav .UserAvatar.active {
+  border: 2px solid var(--primary-color);
+}
+.NavbarAuth .container .setting-nav .UserAvatar img {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  object-fit: cover;
 }
