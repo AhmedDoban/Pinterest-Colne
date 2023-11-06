@@ -1,0 +1,104 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# setting container right links
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.setting .right .user-links {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.setting .right .user-links .links-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+@media (max-width: 772px) {
+  .setting .right .user-links .links-container {
+    flex-direction: column;
+  }
+}
+.setting .right .user-links .links-container .Select-data {
+  position: relative;
+  min-width: 150px;
+  height: 40px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  background-color: var(--input-color);
+  color: var(--primary-dark-color);
+  transition: var(--main-transition);
+}
+.setting .right .user-links .links-container .Select {
+  position: relative;
+  min-width: 150px;
+  height: 40px;
+  padding: 10px;
+  background-color: var(--input-color);
+  color: var(--primary-dark-color);
+  border: none;
+  transition: var(--main-transition);
+}
+.setting .right .user-links .links-container .Select .drop-data {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-dark-color);
+}
+.setting .right .user-links .links-container .Select .drop-data p {
+  color: var(--primary-dark-color);
+  font-weight: 400;
+  font-size: 14px;
+}
+.setting .right .user-links .links-container .Select input {
+  color: var(--primary-dark-color);
+}
+.setting .right .user-links .links-container .Select .css-8t1lbd-DropDown {
+  background-color: var(--input-color);
+}
+.setting .right .user-links .links-container .Select .css-z2hyoe-ItemComponent {
+  border-bottom: 1px solid var(--input-color) !important;
+}
+.setting
+  .right
+  .user-links
+  .links-container
+  .Select
+  .css-z2hyoe-ItemComponent.react-dropdown-select-item-selected
+  p,
+.setting
+  .right
+  .user-links
+  .links-container
+  .Select
+  .css-z2hyoe-ItemComponent.react-dropdown-select-item-selected
+  i {
+  color: #fff;
+}
+.setting .right .user-links .links-container .input-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.setting .right .user-links .links-container .input-box input {
+  height: 40px;
+  border-radius: 0;
+}
+.setting .right .user-links .links-container .input-box i {
+  width: 35px;
+  height: 35px;
+  background-color: var(--input-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-p-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}

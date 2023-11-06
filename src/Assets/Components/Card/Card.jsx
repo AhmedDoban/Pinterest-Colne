@@ -6,6 +6,7 @@ import Handle_Secret from "../../Utils/Handle_Secrets";
 
 function Card(props) {
   const [Preview, SetPreview] = useState(false);
+  const [More_actions, SetMore_actions] = useState(false);
 
   const Condetion =
     props.Img.User_id ===
@@ -13,7 +14,7 @@ function Card(props) {
 
   return (
     <React.Fragment>
-      <div className="Maincard" key={props.Img._id} data-aos="fade-up">
+      <div className="Maincard" key={props.Img._id} data-aos="zoom-in-up">
         <div className="img">
           <img
             src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.url}`}
@@ -25,33 +26,45 @@ function Card(props) {
           <h3>{props.Img.name}</h3>
           <div className="actions">
             <p>
-              <i className="fa-solid fa-thumbtack" />
-              <span>{props.Img.Pined}</span>
-            </p>
-            <p>
               <i className="fa-regular fa-heart" />
               <span>{props.Img.Loves}</span>
             </p>
-            {Condetion ? (
-              <p
-                onClick={() =>
-                  Handle_Secret(
-                    props.Img.User_id,
-                    props.Img._id,
-                    props.SetReloadPage,
-                    props.ReloadPage
-                  )
+            <div className="more-action-menu">
+              <p onClick={() => SetMore_actions(!More_actions)}>
+                <i className="fa-solid fa-ellipsis" />
+              </p>
+              <div
+                className={
+                  More_actions ? "menu-container active" : "menu-container"
                 }
               >
-                <i
-                  className={
-                    props.ShowElemnt === true
-                      ? "fa-solid fa-eye"
-                      : "fa-solid fa-eye-slash"
-                  }
-                />
-              </p>
-            ) : null}
+                <p>
+                  <i className="fa-solid fa-thumbtack" />
+                  <span>{props.Img.Pined}</span>
+                </p>
+
+                {Condetion ? (
+                  <p
+                    onClick={() =>
+                      Handle_Secret(
+                        props.Img.User_id,
+                        props.Img._id,
+                        props.SetReloadPage,
+                        props.ReloadPage
+                      )
+                    }
+                  >
+                    <i
+                      className={
+                        props.ShowElemnt === true
+                          ? "fa-solid fa-eye"
+                          : "fa-solid fa-eye-slash"
+                      }
+                    />
+                  </p>
+                ) : null}
+              </div>
+            </div>
           </div>
         </div>
         <div className="user">

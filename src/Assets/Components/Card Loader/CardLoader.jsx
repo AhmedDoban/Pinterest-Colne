@@ -6,7 +6,7 @@ function CardLoader() {
   return (
     <React.Fragment>
       {Loadin.map((card) => (
-        <div className="CardLoader" data-aos="fade-up">
+        <div className="CardLoader" data-aos="zoom-in-up">
           <div className="img"></div>
           <div className="info">
             <h3></h3>

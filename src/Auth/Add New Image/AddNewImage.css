@@ -24,7 +24,6 @@
   align-items: center;
   justify-content: center;
   opacity: 0.7;
-  backdrop-filter: blur(50px);
   transition: var(--main-transition);
   z-index: 10;
 }

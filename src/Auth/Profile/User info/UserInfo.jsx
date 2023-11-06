@@ -30,7 +30,7 @@ function UserInfo(props) {
           </div>
           {_id === param.User_id ? (
             <div className="button-action">
-              <Link to={`/User/${param.User_id}/Setting`}>
+              <Link to="/Setting">
                 <i className="fa-solid fa-gears" />
                 Edit your profile
               </Link>
