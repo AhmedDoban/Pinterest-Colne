@@ -73,7 +73,7 @@ function AddNewImage(props) {
     setProgress(0);
   };
   // call the api if the all data are right
-  const HandleUPloadNewImage = async (ex_not) => {
+  const HandleUPloadNewImage = async () => {
     const { _id, Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
     if (NewImage.name !== "" && NewImageUrl !== "") {
@@ -101,7 +101,6 @@ function AddNewImage(props) {
           if (res.data.Status === "Faild") {
             Toast_Handelar("error", res.data.message);
           } else {
-            if (ex_not === "exit") SetAddCard(false);
             SetNewImage({
               name: "",
               TagInput: "",
@@ -195,13 +194,9 @@ function AddNewImage(props) {
                   <button onClick={() => HandleTagsFunction()}>Add Tag</button>
                 </div>
                 <div className="Upload-box">
-                  <button onClick={() => HandleUPloadNewImage("Not")}>
+                  <button onClick={() => HandleUPloadNewImage()}>
                     <i className="fa-solid fa-cloud-arrow-up" />
                     Upload
-                  </button>
-                  <button onClick={() => HandleUPloadNewImage("exit")}>
-                    <i className="fa-solid fa-cloud-arrow-up" />
-                    Upload & exit
                   </button>
                 </div>
                 <div className="Tags-box">

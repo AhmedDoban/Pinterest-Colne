@@ -65,7 +65,7 @@ function Links(props) {
       Icon: "fa-solid fa-link",
     },
   ];
-  console.log(props.Links);
+
   const HandleSelectedValue = () => {};
   return (
     <React.Fragment>

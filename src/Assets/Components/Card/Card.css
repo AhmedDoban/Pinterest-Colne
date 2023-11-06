@@ -162,7 +162,8 @@
 }
 .Maincard .user a {
   position: relative;
-  width: 35px;
+  min-width: 35px;
+  max-width: 35px;
   height: 35px;
   border-radius: 50%;
   overflow: hidden;
@@ -171,5 +172,5 @@
   position: relative;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }

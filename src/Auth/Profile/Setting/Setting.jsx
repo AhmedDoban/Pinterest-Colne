@@ -42,7 +42,7 @@ function Setting(props) {
             if (Res.data.Status === "Faild") {
               Toast_Handelar("error", Res.data.message);
             } else {
-              SetProfileData(Res.data.Data[0]);
+              SetProfileData(Res.data.Data);
               SetLoading(false);
             }
           });
@@ -118,16 +118,37 @@ function Setting(props) {
     SetNewPassword({ ...NewPassword, [name]: value });
   };
 
-  const HandleChangePassword = () => {
+  // Handel Change password in the back end
+  const HandleChangePassword = async () => {
     if (NewPassword.NewPassword === NewPassword.ReNewPassword) {
       try {
-        axios.post(process.env.REACT_APP_API).then((res) => {
-          if (res.data.Status === "Faild") {
-            Toast_Handelar("error", res.data.message);
-          } else {
-            Toast_Handelar("success", res.data.message);
-          }
-        });
+        await axios
+          .post(
+            `${process.env.REACT_APP_API}/Users/Setting/Password`,
+            {
+              email: ProfileData.email,
+              User_id: _id,
+              password: NewPassword.password,
+              NewPassword: NewPassword.NewPassword,
+            },
+            {
+              headers: {
+                Authorization: Token,
+              },
+            }
+          )
+          .then((res) => {
+            if (res.data.Status === "Faild") {
+              Toast_Handelar("error", res.data.message);
+            } else {
+              Toast_Handelar("success", res.data.message);
+              SetNewPassword({
+                password: "",
+                NewPassword: "",
+                ReNewPassword: "",
+              });
+            }
+          });
       } catch (err) {
         Toast_Handelar("error", "Something happens wrong !");
       }
@@ -136,6 +157,69 @@ function Setting(props) {
         "error",
         "there is no match between new password and re new password"
       );
+    }
+  };
+
+  // Handel Change USER data in the back end
+  const HandleChangePersonal = async () => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Users/Setting/Personal`,
+          {
+            email: ProfileData.email,
+            User_id: _id,
+            USER: ProfileData,
+          },
+          {
+            headers: {
+              Authorization: Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status === "Faild") {
+            Toast_Handelar("error", res.data.message);
+          } else {
+            Toast_Handelar("success", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Something happens wrong !");
+    }
+  };
+
+  // Handel Change USER data in the back end
+  const HandleChangeAvatar = async () => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Users/Setting/Upload_Avatar`,
+          {
+            User_id: _id,
+            email: ProfileData.email,
+            Avatar: ProfileData.Avatar,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: Token,
+            },
+            onUploadProgress: (e) => {
+              const progress = (e.loaded / e.total) * 100;
+              setProgress(progress);
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status === "Faild") {
+            Toast_Handelar("error", res.data.message);
+          } else {
+            Toast_Handelar("success", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Something happens wrong !");
     }
   };
 
@@ -190,7 +274,11 @@ function Setting(props) {
                 <div className="progress-bar">
                   <span style={{ width: `${progress}%` }}></span>
                 </div>
-                {NewAvatarUrl && <button>Change Photo</button>}
+                {NewAvatarUrl && (
+                  <button onClick={() => HandleChangeAvatar()}>
+                    Change Photo
+                  </button>
+                )}
               </div>
               {/**************************** End ********************************/}
               {/**************************** Start right data handelars *************************/}
@@ -308,7 +396,9 @@ function Setting(props) {
                 {/**************************** Split ********************************/}
                 <div className="input-box-two">
                   <div className="input-box">
-                    <button>Save Changes</button>
+                    <button onClick={() => HandleChangePersonal()}>
+                      Save Changes
+                    </button>
                   </div>
                   <div className="input-box">
                     <button onClick={() => HandleChangePassword()}>

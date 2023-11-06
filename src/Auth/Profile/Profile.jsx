@@ -32,7 +32,7 @@ function Profile(props) {
             if (Res.data.Status === "Faild") {
               Toast_Handelar("error", Res.data.message);
             } else {
-              SetProfileData(Res.data.Data[0]);
+              SetProfileData(Res.data.Data);
             }
           });
       } catch (err) {
