@@ -3,6 +3,7 @@ import "./CardPreview.css";
 import { saveAs } from "file-saver";
 import { Link } from "react-router-dom";
 import Handle_Secret from "../../../Utils/Handle_Secrets";
+import Handle_Delete from "../../../Utils/Handle_Delete";
 
 function CardPreview(props) {
   const [Menu, SetMenu] = useState(false);
@@ -48,20 +49,33 @@ function CardPreview(props) {
                   <span>{props.Img.Loves}</span>
                 </p>
                 {Condetion && (
-                  <i
-                    className={
-                      props.ShowElemnt === true
-                        ? "fa-solid fa-eye"
-                        : "fa-solid fa-eye-slash"
-                    }
-                    onClick={() =>
-                      Handle_Secret(
-                        props.Img.User_id,
-                        props.Img._id,
-                        props.SetReloadPage
-                      )
-                    }
-                  />
+                  <React.Fragment>
+                    <i
+                      className={
+                        props.ShowElemnt === true
+                          ? "fa-solid fa-eye"
+                          : "fa-solid fa-eye-slash"
+                      }
+                      onClick={() =>
+                        Handle_Secret(
+                          props.Img.User_id,
+                          props.Img._id,
+                          props.SetReloadPage
+                        )
+                      }
+                    />
+                    <i
+                      className="fa-solid fa-trash"
+                      onClick={() =>
+                        Handle_Delete(
+                          props.Img.User_id,
+                          props.Img._id,
+                          props.SetReloadPage,
+                          props.ReloadPage
+                        )
+                      }
+                    />
+                  </React.Fragment>
                 )}
 
                 <i

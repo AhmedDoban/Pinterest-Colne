@@ -56,7 +56,7 @@ function Navbar(props) {
     <React.Fragment>
       <div className="NavbarAuth">
         <div className="container">
-          <Link className="logo" to="/" data-aos="zoom-in">
+          <Link className="logo" to="/">
             <img src={require("../../Assets/Images/logo.png")} alt="logo" />
           </Link>
           <div className="search" to="/">

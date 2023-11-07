@@ -1,0 +1,65 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Not Found
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NotFound {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--primary-bg-color);
+  transition: var(--main-transition);
+  color: var(--main-p-color);
+  width: 100%;
+  height: 100vh;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# NotFound container 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NotFound .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  height: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# NotFound container img-box
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NotFound .container .img-box {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  max-width: 100%;
+  background-image: url("../../Images/Cloud2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 60px;
+}
+.NotFound .container .img-box img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: Up_and_Down 1.2s ease-in-out infinite alternate-reverse;
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# go back button
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NotFound .container button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  padding: 10px 12px;
+  border: 0;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: var(--blue-box-shadow);
+  border-radius: 10px;
+  transition: var(--main-transition);
+}

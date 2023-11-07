@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 const Home = lazy(() => import("./Home/Home"));
 const Profile = lazy(() => import("./Profile/Profile"));
 const Setting = lazy(() => import("./Profile/Setting/Setting"));
+const NotFound = lazy(() => import("../Assets/Components/Not Found/NotFound"));
 
 function Auth(props) {
   const [ReloadPage, SetReloadPage] = useState(false);
@@ -40,6 +41,7 @@ function Auth(props) {
               <Route path="Secret" />
             </Route>
             <Route path="/Setting" element={<Setting />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </div>
