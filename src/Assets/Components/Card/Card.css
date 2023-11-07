@@ -68,12 +68,12 @@
 }
 .Maincard .info .actions .more-action-menu .menu-container {
   position: absolute;
+  width: 100px;
   bottom: 30px;
   right: -5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   box-shadow: var(--main-box-shadow);
   padding: 0;
   border-radius: 0.5em 0.5em 0 0.5em;
@@ -102,16 +102,43 @@
   opacity: 1;
 }
 .Maincard .info p {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   transition: var(--main-transition);
 }
+.Maincard .info .actions .more-action-menu .menu-container > p {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 35px;
+  padding: 5px;
+}
+.Maincard .info .actions .more-action-menu .menu-container > p i {
+  width: 15px;
+  height: 15px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Maincard .info .actions .menu-container > p:not(:last-child) {
+  border-bottom: 1px solid var(--main-p-color);
+}
 .Maincard .info p:hover,
 .Maincard .info p.active {
   color: var(--primary-color);
   transform: scale(1.1);
+}
+.Maincard .info .actions .menu-container > p:not(:last-child):hover,
+.Maincard .info .actions .menu-container > p:not(:last-child).active {
+  border-bottom: 1px solid var(--primary-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Maincard user

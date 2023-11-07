@@ -3,6 +3,7 @@ import "./Card.css";
 import CardPreview from "./Card Preview/CardPreview";
 import { Link } from "react-router-dom";
 import Handle_Secret from "../../Utils/Handle_Secrets";
+import Handle_Delete from "../../Utils/Handle_Delete";
 
 function Card(props) {
   const [Preview, SetPreview] = useState(false);
@@ -30,7 +31,10 @@ function Card(props) {
               <span>{props.Img.Loves}</span>
             </p>
             <div className="more-action-menu">
-              <p onClick={() => SetMore_actions(!More_actions)}>
+              <p
+                onClick={() => SetMore_actions(!More_actions)}
+                className={More_actions ? "active" : ""}
+              >
                 <i className="fa-solid fa-ellipsis" />
               </p>
               <div
@@ -44,24 +48,39 @@ function Card(props) {
                 </p>
 
                 {Condetion ? (
-                  <p
-                    onClick={() =>
-                      Handle_Secret(
-                        props.Img.User_id,
-                        props.Img._id,
-                        props.SetReloadPage,
-                        props.ReloadPage
-                      )
-                    }
-                  >
-                    <i
-                      className={
-                        props.ShowElemnt === true
-                          ? "fa-solid fa-eye"
-                          : "fa-solid fa-eye-slash"
+                  <React.Fragment>
+                    <p
+                      onClick={() =>
+                        Handle_Secret(
+                          props.Img.User_id,
+                          props.Img._id,
+                          props.SetReloadPage,
+                          props.ReloadPage
+                        )
                       }
-                    />
-                  </p>
+                    >
+                      <i
+                        className={
+                          props.ShowElemnt === true
+                            ? "fa-solid fa-eye"
+                            : "fa-solid fa-eye-slash"
+                        }
+                      />
+                      {props.ShowElemnt === true ? "Show" : "Hide"}
+                    </p>
+                    <p
+                      onClick={() =>
+                        Handle_Delete(
+                          props.Img.User_id,
+                          props.Img._id,
+                          props.SetReloadPage,
+                          props.ReloadPage
+                        )
+                      }
+                    >
+                      <i className="fa-solid fa-trash" /> Delete
+                    </p>
+                  </React.Fragment>
                 ) : null}
               </div>
             </div>
