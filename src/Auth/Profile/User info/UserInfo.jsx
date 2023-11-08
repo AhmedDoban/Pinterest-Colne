@@ -22,7 +22,7 @@ function UserInfo(props) {
             {props.ProfileData.Links
               ? props.ProfileData?.Links.map((Link) => (
                   <a href={Link.Link}>
-                    <i class={Link.Icon} />
+                    <i className={Link.Icon} />
                     <span>{Link.Name}</span>
                   </a>
                 ))

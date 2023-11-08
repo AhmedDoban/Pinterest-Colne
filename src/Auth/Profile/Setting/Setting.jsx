@@ -309,7 +309,7 @@ function Setting(props) {
                   <div className="input-box">
                     <label htmlFor="email">Email</label>
                     <input
-                      type="search"
+                      type="text"
                       name="email"
                       id="email"
                       placeholder="Enter Your Email !"

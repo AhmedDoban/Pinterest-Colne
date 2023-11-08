@@ -32,12 +32,6 @@ function UserNavlink(props) {
           </NavLink>
         </li>
         <li>
-          <div className="action">
-            <p>{props.ProfileData.Likes}</p>
-            <span>Likes</span>
-          </div>
-        </li>
-        <li>
           <NavLink to={`/User/${param.User_id}/Followers`} className="action">
             <p>{props.ProfileData.Followers}</p>
             <span>Followers</span>

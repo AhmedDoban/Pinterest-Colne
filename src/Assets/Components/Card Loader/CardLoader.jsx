@@ -5,8 +5,8 @@ function CardLoader() {
   const [Loadin, SetLoadin] = useState(new Array(10).fill(" "));
   return (
     <React.Fragment>
-      {Loadin.map((card) => (
-        <div className="CardLoader" data-aos="zoom-in-up">
+      {Loadin.map((card, index) => (
+        <div className="CardLoader" data-aos="zoom-in-up" key={index}>
           <div className="img"></div>
           <div className="info">
             <h3></h3>

@@ -4,21 +4,20 @@ import CardPreview from "./Card Preview/CardPreview";
 import { Link } from "react-router-dom";
 import Handle_Secret from "../../Utils/Handle_Secrets";
 import Handle_Delete from "../../Utils/Handle_Delete";
+import Handle_Likes from "../../Utils/Handle_Likes";
 
 function Card(props) {
+  const { _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   const [Preview, SetPreview] = useState(false);
-  const [More_actions, SetMore_actions] = useState(false);
   const [Delete, SetDelete] = useState(false);
-
-  const Condetion =
-    props.Img.User_id ===
-    JSON.parse(localStorage.getItem("Pinterest-Login"))._id;
+  const [Loves, SetLoves] = useState(props.Img.Loves);
+  const [Like, SetLike] = useState(props.Img.If_User_Like || false);
+  const Condetion = props.Img.User_id === _id;
 
   return (
     <React.Fragment>
       <div
         className={Delete ? "Maincard delete" : "Maincard"}
-        key={props.Img._id}
         data-aos="zoom-in-up"
       >
         <div className="img">
@@ -31,22 +30,29 @@ function Card(props) {
         <div className="info">
           <h3>{props.Img.name}</h3>
           <div className="actions">
-            <p>
-              <i className="fa-regular fa-heart" />
-              <span>{props.Img.Loves}</span>
+            <p
+              onClick={() =>
+                Handle_Likes(
+                  props.Img.User_id,
+                  props.Img._id,
+                  SetLike,
+                  Like,
+                  SetLoves
+                )
+              }
+            >
+              <i
+                className={
+                  Like ? "fa-solid fa-heart like_active" : "fa-regular fa-heart"
+                }
+              />
+              <span>{Loves}</span>
             </p>
             <div className="more-action-menu">
-              <p
-                onClick={() => SetMore_actions(!More_actions)}
-                className={More_actions ? "active" : ""}
-              >
+              <p>
                 <i className="fa-solid fa-ellipsis" />
               </p>
-              <div
-                className={
-                  More_actions ? "menu-container active" : "menu-container"
-                }
-              >
+              <div className="menu-container">
                 <p>
                   <i className="fa-solid fa-thumbtack" />
                   <span>{props.Img.Pined}</span>
@@ -111,7 +117,9 @@ function Card(props) {
 
             <div className="tags">
               {props.Img?.Tags.length > 0 ? (
-                props.Img?.Tags.map((tag) => <span>{tag}</span>)
+                props.Img?.Tags.map((tag, index) => (
+                  <span key={index}>{tag}</span>
+                ))
               ) : (
                 <span>there is no Tags</span>
               )}

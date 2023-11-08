@@ -98,7 +98,7 @@
   transform: translateX(-100%);
   transition: var(--main-transition);
 }
-.Maincard .info .actions .more-action-menu .menu-container.active {
+.Maincard .info .actions .more-action-menu:hover .menu-container {
   z-index: 1;
   scale: 1;
   opacity: 1;
@@ -109,6 +109,11 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  transition: var(--main-transition);
+}
+.Maincard .info p i.like_active {
+  position: relative;
+  color: red;
   transition: var(--main-transition);
 }
 .Maincard .info .actions .more-action-menu .menu-container > p {

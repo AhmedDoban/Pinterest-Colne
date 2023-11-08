@@ -11,7 +11,7 @@ function Home(props) {
   const [Page, SetPage] = useState(1);
   const [Loading, SetLoadin] = useState(true);
   const [EndData, SetEndData] = useState(false);
-
+  const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   // add new images with changes in page
   useEffect(() => {
     if (EndData) {
@@ -21,7 +21,17 @@ function Home(props) {
       try {
         SetLoadin(true);
         await axios
-          .get(`${process.env.REACT_APP_API}/Images?Page=${Page}&Limit=10`)
+          .post(
+            `${process.env.REACT_APP_API}/Images?Page=${Page}&Limit=10`,
+            {
+              User_id: _id,
+            },
+            {
+              headers: {
+                Authorization: Token,
+              },
+            }
+          )
           .then((Res) => {
             if (Res.data.Status === "Faild") {
               Toast_Handelar("error", Res.data.message);
@@ -66,13 +76,15 @@ function Home(props) {
     <React.Fragment>
       <div className="Home">
         <div className="container">
-          {DataImg.map((Img) => (
+          {DataImg.map((Img, index) => (
             <Card
               Img={Img}
               ShowUSer="true"
               ShowElemnt={false}
               SetReloadPage={props.SetReloadPage}
               ReloadPage={props.ReloadPage}
+              Delete={true}
+              key={index}
             />
           ))}
           {Loading && !EndData ? <CardLoader /> : null}
