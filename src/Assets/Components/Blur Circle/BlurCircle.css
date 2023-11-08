@@ -16,13 +16,8 @@
   border-radius: 50%;
   opacity: 1;
   filter: blur(158.5px);
-  animation: Spin 15s linear infinite;
 }
-@keyframes Spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
+
 .BlurCircle .circle:nth-child(1) {
   top: 0;
   left: 0;
