@@ -19,6 +19,7 @@ function Auth(props) {
           SetLogin={props.SetLogin}
           Dark={props.Dark}
           HandelDarkMode={props.HandelDarkMode}
+          ReloadPage={ReloadPage}
         />
         <Suspense fallback={<Loading />}>
           <Routes>

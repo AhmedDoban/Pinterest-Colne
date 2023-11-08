@@ -71,7 +71,8 @@ function CardPreview(props) {
                           props.Img.User_id,
                           props.Img._id,
                           props.SetReloadPage,
-                          props.ReloadPage
+                          props.ReloadPage,
+                          props.SetDelete
                         )
                       }
                     />

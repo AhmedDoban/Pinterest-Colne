@@ -150,15 +150,9 @@
 }
 .NavbarAuth .container .setting-nav .UserAvatar:hover::before,
 .NavbarAuth .container .setting-nav .UserAvatar.active::before {
-  animation: SPIN 1.5s linear infinite;
-  border-right-color: var(--primary-color);
-  border-left-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
-@keyframes SPIN {
-  to {
-    transform: translate(-50%, -50%) rotate(1turn);
-  }
-}
+
 .NavbarAuth .container .setting-nav .UserAvatar img {
   position: relative;
   width: 100%;

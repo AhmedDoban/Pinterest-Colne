@@ -9,6 +9,7 @@ function Setting(props) {
   const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
   const [ProfileData, SetProfileData] = useState({});
+  const [ImageFile, SetImageFile] = useState("");
   const [Loading, SetLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [NewAvatarUrl, SetNewAvatarUrl] = useState("");
@@ -24,32 +25,32 @@ function Setting(props) {
   });
 
   // Get user data from backend
+  const GetData = async () => {
+    try {
+      SetLoading(true);
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Users/${_id}`,
+          {},
+          {
+            headers: {
+              Authorization: Token,
+            },
+          }
+        )
+        .then((Res) => {
+          if (Res.data.Status === "Faild") {
+            Toast_Handelar("error", Res.data.message);
+          } else {
+            SetProfileData(Res.data.Data);
+            SetLoading(false);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Something happens wrong");
+    }
+  };
   useEffect(() => {
-    const GetData = async () => {
-      try {
-        SetLoading(true);
-        await axios
-          .post(
-            `${process.env.REACT_APP_API}/Users/${_id}`,
-            {},
-            {
-              headers: {
-                Authorization: Token,
-              },
-            }
-          )
-          .then((Res) => {
-            if (Res.data.Status === "Faild") {
-              Toast_Handelar("error", Res.data.message);
-            } else {
-              SetProfileData(Res.data.Data);
-              SetLoading(false);
-            }
-          });
-      } catch (err) {
-        Toast_Handelar("error", "Something happens wrong");
-      }
-    };
     GetData();
   }, [_id, Token]);
 
@@ -58,11 +59,10 @@ function Setting(props) {
     const File = e.target.files[0];
     setProgress(0);
     if (File.type.split("/")[0] === "image") {
-      const NewDataUserClone = { ...ProfileData, Avatar: File };
       if ((File.size / 1000).toFixed(0) >= 1028) {
         Toast_Handelar("error", "File size cannot exceed more than 1MB");
       } else {
-        SetProfileData(NewDataUserClone);
+        SetImageFile(File);
         SetNewAvatarUrl(URL.createObjectURL(File));
       }
     } else {
@@ -73,8 +73,7 @@ function Setting(props) {
   // handel delete image file
   const HandelDelteImage = () => {
     SetNewAvatarUrl("");
-    const NewDataUserClone = { ...ProfileData, Avatar: "Uploads/avatar.jpg" };
-    SetProfileData(NewDataUserClone);
+    SetImageFile("");
     setProgress(0);
   };
 
@@ -163,15 +162,13 @@ function Setting(props) {
   // Handel Change USER data in the back end
   const HandleChangePersonal = async () => {
     try {
-      const Avatar = ProfileData.Avatar === "" ? "Uploads/avatar.jpg" : null;
-
       await axios
         .post(
           `${process.env.REACT_APP_API}/Users/Setting/Personal`,
           {
             email: ProfileData.email,
             User_id: _id,
-            USER: Avatar ? { ...ProfileData, Avatar } : { ProfileData },
+            USER: ProfileData,
           },
           {
             headers: {
@@ -200,7 +197,7 @@ function Setting(props) {
           {
             User_id: _id,
             email: ProfileData.email,
-            Avatar: ProfileData.Avatar,
+            Avatar: ImageFile,
           },
           {
             headers: {
@@ -218,6 +215,7 @@ function Setting(props) {
             Toast_Handelar("error", res.data.message);
           } else {
             Toast_Handelar("success", res.data.message);
+            GetData();
           }
         });
     } catch (err) {
@@ -316,7 +314,6 @@ function Setting(props) {
                       id="email"
                       placeholder="Enter Your Email !"
                       value={ProfileData.email}
-                      onChange={(e) => HandleInputChange(e)}
                     />
                   </div>
                 </div>

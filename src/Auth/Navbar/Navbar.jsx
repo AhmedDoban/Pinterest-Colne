@@ -25,6 +25,7 @@ function Navbar(props) {
       Toast_Handelar("error", "can't connect to the database");
     }
   };
+
   useEffect(() => {
     const GetData = async () => {
       try {
@@ -50,7 +51,7 @@ function Navbar(props) {
       }
     };
     GetData();
-  }, []);
+  }, [_id, Token]);
 
   return (
     <React.Fragment>

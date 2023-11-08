@@ -1,7 +1,13 @@
 import axios from "axios";
 import Toast_Handelar from "./Toast_Handelar";
 
-const Handle_Delete = async (User_id, Image_id, SetReloadPage, ReloadPage) => {
+const Handle_Delete = async (
+  User_id,
+  Image_id,
+  SetReloadPage,
+  ReloadPage,
+  Delete
+) => {
   const TOKEN = JSON.parse(localStorage.getItem("Pinterest-Login"));
   const { Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   await axios
@@ -24,6 +30,7 @@ const Handle_Delete = async (User_id, Image_id, SetReloadPage, ReloadPage) => {
       } else {
         Toast_Handelar("success", Res.data.message);
         SetReloadPage(!ReloadPage);
+        Delete(true);
       }
     });
 };

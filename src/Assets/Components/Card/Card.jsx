@@ -8,6 +8,7 @@ import Handle_Delete from "../../Utils/Handle_Delete";
 function Card(props) {
   const [Preview, SetPreview] = useState(false);
   const [More_actions, SetMore_actions] = useState(false);
+  const [Delete, SetDelete] = useState(false);
 
   const Condetion =
     props.Img.User_id ===
@@ -15,7 +16,11 @@ function Card(props) {
 
   return (
     <React.Fragment>
-      <div className="Maincard" key={props.Img._id} data-aos="zoom-in-up">
+      <div
+        className={Delete ? "Maincard delete" : "Maincard"}
+        key={props.Img._id}
+        data-aos="zoom-in-up"
+      >
         <div className="img">
           <img
             src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.url}`}
@@ -74,7 +79,8 @@ function Card(props) {
                           props.Img.User_id,
                           props.Img._id,
                           props.SetReloadPage,
-                          props.ReloadPage
+                          props.ReloadPage,
+                          SetDelete
                         )
                       }
                     >
@@ -121,6 +127,7 @@ function Card(props) {
           ShowElemnt={props.ShowElemnt}
           SetReloadPage={props.SetReloadPage}
           ReloadPage={props.ReloadPage}
+          SetDelete={SetDelete}
         />
       ) : null}
     </React.Fragment>
