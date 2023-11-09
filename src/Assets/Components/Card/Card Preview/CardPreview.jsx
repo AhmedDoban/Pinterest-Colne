@@ -4,6 +4,7 @@ import { saveAs } from "file-saver";
 import { Link } from "react-router-dom";
 import Handle_Secret from "../../../Utils/Handle_Secrets";
 import Handle_Delete from "../../../Utils/Handle_Delete";
+import Handle_Likes from "../../../Utils/Handle_Likes";
 
 function CardPreview(props) {
   const [Menu, SetMenu] = useState(false);
@@ -44,9 +45,25 @@ function CardPreview(props) {
                   <i className="fa-solid fa-thumbtack" />
                   <span>{props.Img.Pined}</span>
                 </p>
-                <p>
-                  <i className="fa-regular fa-heart" />
-                  <span>{props.Img.Loves}</span>
+                <p
+                  onClick={() =>
+                    Handle_Likes(
+                      props.Img.User_id,
+                      props.Img._id,
+                      props.SetLike,
+                      props.Like,
+                      props.SetLoves
+                    )
+                  }
+                >
+                  <i
+                    className={
+                      props.Like
+                        ? "fa-solid fa-heart like_active"
+                        : "fa-regular fa-heart"
+                    }
+                  />
+                  <span>{props.Loves}</span>
                 </p>
                 {Condetion && (
                   <React.Fragment>

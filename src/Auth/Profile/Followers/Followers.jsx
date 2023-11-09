@@ -59,6 +59,8 @@ function Followers(props) {
                   Follow={Follow}
                   _id={Follow.Follower_id}
                   key={Follow._id}
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
                 />
               ))}
               {Loading && <CardLoader />}

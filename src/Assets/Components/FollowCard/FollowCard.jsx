@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./FollowCard.css";
+import Handle_Follow from "../../Utils/Handle_Follow";
 
 function FollowCard(props) {
   const [FollowAction, SetFollowAction] = useState(props.Follow.If_User_Follow);
@@ -9,7 +10,7 @@ function FollowCard(props) {
   return (
     <React.Fragment>
       <div className="FollowCard">
-        <Link className="head_image" to={``}>
+        <Link className="head_image" to={`/User/${props._id}`}>
           <img
             src={`${process.env.REACT_APP_API_UPLOADS}/${props.Follow.User.Avatar}`}
             alt={props.Follow.User.FirstName}
@@ -17,14 +18,22 @@ function FollowCard(props) {
         </Link>
         <div className="Card_Data">
           <div className="info">
-            <Link to={``} className="UserName">
+            <Link to={`/User/${props._id}`} className="UserName">
               {props.Follow.User.FirstName} {props.Follow.User.LastName}
             </Link>
             <p>{props.Follow.User.bio}</p>
             {props._id == _id ? null : (
               <div className="action">
-                <button>
-                  <i className="fa-solid fa-user-plus"></i>{" "}
+                <button
+                  onClick={() =>
+                    Handle_Follow(
+                      props._id,
+                      props.SetReloadPage,
+                      props.ReloadPage
+                    )
+                  }
+                >
+                  <i className="fa-solid fa-user-plus"></i>
                   {FollowAction ? "UnFollow" : "Follow"}
                 </button>
               </div>

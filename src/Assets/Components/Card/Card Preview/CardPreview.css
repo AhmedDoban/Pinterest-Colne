@@ -61,6 +61,9 @@
   backdrop-filter: blur(50px);
   transition: var(--main-transition);
 }
+.CardPreview .actions .other-action-menu i.like_active {
+  color: red;
+}
 .CardPreview .actions > i:hover,
 .CardPreview .actions .other-action-menu > i:hover {
   background-color: var(--primary-color);

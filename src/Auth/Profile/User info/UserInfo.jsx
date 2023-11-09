@@ -1,6 +1,7 @@
 import React from "react";
 import "./UserInfo.css";
 import { Link, useParams } from "react-router-dom";
+import Handle_Follow from "../../../Assets/Utils/Handle_Follow";
 
 function UserInfo(props) {
   const param = useParams();
@@ -37,7 +38,16 @@ function UserInfo(props) {
             </div>
           ) : (
             <div className="button-action">
-              <button className={props.IsFollow ? "Unfollow" : "Follow"}>
+              <button
+                className={props.IsFollow ? "Unfollow" : "Follow"}
+                onClick={() =>
+                  Handle_Follow(
+                    props.ProfileData._id,
+                    props.SetReloadPage,
+                    props.ReloadPage
+                  )
+                }
+              >
                 <span>{props.IsFollow ? "Unfollow" : "Follow"}</span>
               </button>
             </div>

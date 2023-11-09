@@ -136,6 +136,10 @@ function Card(props) {
           SetReloadPage={props.SetReloadPage}
           ReloadPage={props.ReloadPage}
           SetDelete={SetDelete}
+          SetLike={SetLike}
+          Like={Like}
+          SetLoves={SetLoves}
+          Loves={Loves}
         />
       ) : null}
     </React.Fragment>

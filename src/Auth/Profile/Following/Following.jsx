@@ -46,7 +46,7 @@ function Following(props) {
       }
     };
     GetData();
-  }, [Param.User_id, Token, props.ReloadPage]);
+  }, [Param.User_id, Token, props.ReloadPage, _id]);
 
   return (
     <React.Fragment>
@@ -59,6 +59,8 @@ function Following(props) {
                   Follow={Follow}
                   _id={Follow.Following_id}
                   key={Follow._id}
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
                 />
               ))}
               {Loading && <CardLoader />}

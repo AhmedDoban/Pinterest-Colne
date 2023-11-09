@@ -45,13 +45,18 @@ function Profile(props) {
       }
     };
     GetData();
-  }, [Param.User_id, Token, props.ReloadPage]);
+  }, [Param.User_id, Token, props.ReloadPage, _id]);
 
   return (
     <React.Fragment>
       <div className="Profile">
         <div className="container">
-          <UserInfo ProfileData={ProfileData} IsFollow={IsFollow} />
+          <UserInfo
+            ProfileData={ProfileData}
+            IsFollow={IsFollow}
+            ReloadPage={props.ReloadPage}
+            SetReloadPage={props.SetReloadPage}
+          />
           <UserNavlink ProfileData={ProfileData} />
           <Routes>
             <Route
