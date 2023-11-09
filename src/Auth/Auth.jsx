@@ -40,6 +40,9 @@ function Auth(props) {
             >
               <Route path="" exact />
               <Route path="Secret" />
+              <Route path="Pins" />
+              <Route path="Followers" />
+              <Route path="Following" />
             </Route>
             <Route path="/Setting" element={<Setting />} />
             <Route path="*" element={<NotFound />} />

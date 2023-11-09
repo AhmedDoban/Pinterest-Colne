@@ -8,10 +8,14 @@ import axios from "axios";
 const Posts = lazy(() => import("./Posts/Posts"));
 const Secret = lazy(() => import("./Secret/Secret"));
 const AddNewImage = lazy(() => import("./../Add New Image/AddNewImage"));
+const Followers = lazy(() => import("./Followers/Followers"));
+const Following = lazy(() => import("./Following/Following"));
 
 function Profile(props) {
   const [ProfileData, SetProfileData] = useState({});
-  const { Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
+  const [IsFollow, SetIsFollow] = useState();
+
+  const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   const Param = useParams();
 
   // Get user data from backend
@@ -21,7 +25,7 @@ function Profile(props) {
         await axios
           .post(
             `${process.env.REACT_APP_API}/Users/${Param.User_id}`,
-            {},
+            { User_ID: _id },
             {
               headers: {
                 Authorization: Token,
@@ -33,6 +37,7 @@ function Profile(props) {
               Toast_Handelar("error", Res.data.message);
             } else {
               SetProfileData(Res.data.Data);
+              SetIsFollow(Res.data.Follow_Check);
             }
           });
       } catch (err) {
@@ -46,7 +51,7 @@ function Profile(props) {
     <React.Fragment>
       <div className="Profile">
         <div className="container">
-          <UserInfo ProfileData={ProfileData} />
+          <UserInfo ProfileData={ProfileData} IsFollow={IsFollow} />
           <UserNavlink ProfileData={ProfileData} />
           <Routes>
             <Route
@@ -62,6 +67,24 @@ function Profile(props) {
               path="Secret"
               element={
                 <Secret
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
+                />
+              }
+            />
+            <Route
+              path="Followers"
+              element={
+                <Followers
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
+                />
+              }
+            />
+            <Route
+              path="Following"
+              element={
+                <Following
                   ReloadPage={props.ReloadPage}
                   SetReloadPage={props.SetReloadPage}
                 />

@@ -37,7 +37,9 @@ function UserInfo(props) {
             </div>
           ) : (
             <div className="button-action">
-              <button>Follow</button>
+              <button className={props.IsFollow ? "Unfollow" : "Follow"}>
+                <span>{props.IsFollow ? "Unfollow" : "Follow"}</span>
+              </button>
             </div>
           )}
         </div>

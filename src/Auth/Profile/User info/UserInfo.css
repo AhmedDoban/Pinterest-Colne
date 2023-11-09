@@ -119,9 +119,54 @@
   border: 0;
   min-width: 150px;
   max-width: 100%;
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  box-shadow: var(--blue-box-shadow);
+  background-color: transparent;
   cursor: pointer;
+  z-index: 1;
+}
+.UserInfo .data .button-action button::before {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0.4em;
+  z-index: 0;
+  transition: var(--main-transition);
+}
+.UserInfo .data .button-action button span {
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.UserInfo .data .button-action button.Unfollow {
+  border: 1px solid red;
+}
+.UserInfo .data .button-action button.Follow {
+  border: 1px solid var(--primary-color);
+}
+
+.UserInfo .data .button-action button.Unfollow span {
+  color: red;
+}
+.UserInfo .data .button-action button.Follow span {
+  color: var(--primary-color);
+}
+
+.UserInfo .data .button-action button.Unfollow:hover::before {
+  background-color: red;
+  width: 100%;
+  box-shadow: 0px 12px 21px 4px rgba(242, 68, 68, 0.15);
+}
+
+.UserInfo .data .button-action button.Follow:hover::before {
+  background-color: var(--primary-color);
+  width: 100%;
+  box-shadow: var(--blue-box-shadow);
+}
+.UserInfo .data .button-action button:hover span {
+  color: var(--white-color);
   transition: var(--main-transition);
 }

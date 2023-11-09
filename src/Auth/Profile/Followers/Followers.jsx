@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from "react";
-import "./Secret.css";
-import { useParams } from "react-router-dom";
-import Card from "../../../Assets/Components/Card/Card";
+import React, { useEffect, useState } from "react";
 import Toast_Handelar from "../../../Assets/Utils/Toast_Handelar";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import CardLoader from "../../../Assets/Components/Card Loader/CardLoader";
 import { Player } from "@lottiefiles/react-lottie-player";
+import CardLoader from "../../../Assets/Components/Card Loader/CardLoader";
+import "./Followers.css";
+import FollowCard from "../../../Assets/Components/FollowCard/FollowCard";
 
-function Secret(props) {
+function Followers(props) {
   const Param = useParams();
-  const [Secret, SetSecret] = useState([]);
+  const [Followers_Data, SetFollowers_Data] = useState([]);
   const [Loading, SetLoadin] = useState(true);
   const [More, SetMore] = useState(8);
   const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
-  const USerToken = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
-  // Get user Secret from backend
+  // Get user Followers from backend
   useEffect(() => {
     const GetData = async () => {
       try {
         SetLoadin(true);
         await axios
           .post(
-            `${process.env.REACT_APP_API}/Users/Secret`,
-            { _id: _id, Token: USerToken },
+            `${process.env.REACT_APP_API}/Users/Followers`,
+            {
+              Follower_id: Param.User_id,
+              User_ID: _id,
+            },
             {
               headers: {
                 Authorization: Token,
@@ -35,7 +37,7 @@ function Secret(props) {
               Toast_Handelar("error", Res.data.message);
               SetLoadin(false);
             } else {
-              SetSecret(Res.data.Data);
+              SetFollowers_Data(Res.data.Data);
               SetLoadin(false);
             }
           });
@@ -44,21 +46,19 @@ function Secret(props) {
       }
     };
     GetData();
-  }, [Param.User_id, props.ReloadPage]);
+  }, [Param.User_id, Token, props.ReloadPage]);
 
   return (
     <React.Fragment>
-      <div className="Secret">
-        {Secret.length > 0 ? (
+      <div className="Followers">
+        {Followers_Data.length > 0 ? (
           <React.Fragment>
             <div className="container">
-              {Secret.slice(0, More).map((Img) => (
-                <Card
-                  Img={Img}
-                  ShowElemnt={true}
-                  ShowUSer={false}
-                  SetReloadPage={props.SetReloadPage}
-                  ReloadPage={props.ReloadPage}
+              {Followers_Data.slice(0, More).map((Follow) => (
+                <FollowCard
+                  Follow={Follow}
+                  _id={Follow.Follower_id}
+                  key={Follow._id}
                 />
               ))}
               {Loading && <CardLoader />}
@@ -69,13 +69,14 @@ function Secret(props) {
             <Player
               autoplay
               loop
-              src={require("./../../../Assets/Images/Image.json")}
+              src={require("./../../../Assets/Images/followers.json")}
               style={{ height: "300px", width: "300px" }}
             />
-            <p>There is no secrets 😊</p>
+            <p>There is no Followes yet 😮</p>
           </div>
         )}
-        {Secret.length > More && (
+
+        {Followers_Data.length > More && (
           <button
             onClick={() => SetMore((prev) => prev + 10)}
             className="Seemore"
@@ -87,4 +88,4 @@ function Secret(props) {
     </React.Fragment>
   );
 }
-export default Secret;
+export default Followers;
