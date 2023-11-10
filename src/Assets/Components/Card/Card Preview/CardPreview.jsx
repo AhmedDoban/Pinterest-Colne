@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Handle_Secret from "../../../Utils/Handle_Secrets";
 import Handle_Delete from "../../../Utils/Handle_Delete";
 import Handle_Likes from "../../../Utils/Handle_Likes";
+import Handle_Pin from "../../../Utils/Handle_Pin";
 
 function CardPreview(props) {
   const [Menu, SetMenu] = useState(false);
@@ -41,14 +42,22 @@ function CardPreview(props) {
                 <h1 className="USER_NAME">
                   {props.User.FirstName} {props.User.LastName}
                 </h1>
-                <p>
+                <p
+                  onClick={() =>
+                    Handle_Pin(
+                      props.Img._id,
+                      props.SetIFPin,
+                      props.IFPin,
+                      props.SetPin
+                    )
+                  }
+                >
                   <i className="fa-solid fa-thumbtack" />
-                  <span>{props.Img.Pined}</span>
+                  <span>{props.Pin}</span>
                 </p>
                 <p
                   onClick={() =>
                     Handle_Likes(
-                      props.Img.User_id,
                       props.Img._id,
                       props.SetLike,
                       props.Like,
@@ -74,18 +83,13 @@ function CardPreview(props) {
                           : "fa-solid fa-eye-slash"
                       }
                       onClick={() =>
-                        Handle_Secret(
-                          props.Img.User_id,
-                          props.Img._id,
-                          props.SetReloadPage
-                        )
+                        Handle_Secret(props.Img._id, props.SetReloadPage)
                       }
                     />
                     <i
                       className="fa-solid fa-trash"
                       onClick={() =>
                         Handle_Delete(
-                          props.Img.User_id,
                           props.Img._id,
                           props.SetReloadPage,
                           props.ReloadPage,

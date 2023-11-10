@@ -1,13 +1,15 @@
 import axios from "axios";
 import Toast_Handelar from "./Toast_Handelar";
 
-const Handle_Likes = async (Image_id, SetLike, Like, SetLoves) => {
+const Handle_Pin = async (Image_id, SetLike, Like, SetLoves) => {
   const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
+  const TOKEN = JSON.parse(localStorage.getItem("Pinterest-Login"));
   await axios
     .post(
-      `${process.env.REACT_APP_API}/Images/Like_Image`,
+      `${process.env.REACT_APP_API}/Images/Create_Pins`,
       {
         User_id: _id,
+        Token: TOKEN,
         Image_id: Image_id,
       },
       {
@@ -29,4 +31,4 @@ const Handle_Likes = async (Image_id, SetLike, Like, SetLoves) => {
       }
     });
 };
-export default Handle_Likes;
+export default Handle_Pin;

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Handle_Secret from "../../Utils/Handle_Secrets";
 import Handle_Delete from "../../Utils/Handle_Delete";
 import Handle_Likes from "../../Utils/Handle_Likes";
+import Handle_Pin from "../../Utils/Handle_Pin";
 
 function Card(props) {
   const { _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
@@ -12,6 +13,8 @@ function Card(props) {
   const [Delete, SetDelete] = useState(false);
   const [Loves, SetLoves] = useState(props.Img.Loves);
   const [Like, SetLike] = useState(props.Img.If_User_Like || false);
+  const [Pin, SetPin] = useState(props.Img.Pined);
+  const [IFPin, SetIFPin] = useState(props.Img.UserPinned || false);
   const Condetion = props.Img.User_id === _id;
 
   return (
@@ -32,13 +35,7 @@ function Card(props) {
           <div className="actions">
             <p
               onClick={() =>
-                Handle_Likes(
-                  props.Img.User_id,
-                  props.Img._id,
-                  SetLike,
-                  Like,
-                  SetLoves
-                )
+                Handle_Likes(props.Img._id, SetLike, Like, SetLoves)
               }
             >
               <i
@@ -53,9 +50,14 @@ function Card(props) {
                 <i className="fa-solid fa-ellipsis" />
               </p>
               <div className="menu-container">
-                <p>
+                <p
+                  className={IFPin ? "active" : ""}
+                  onClick={() =>
+                    Handle_Pin(props.Img._id, SetIFPin, IFPin, SetPin)
+                  }
+                >
                   <i className="fa-solid fa-thumbtack" />
-                  <span>{props.Img.Pined}</span>
+                  <span>{Pin}</span>
                 </p>
 
                 {Condetion ? (
@@ -63,7 +65,6 @@ function Card(props) {
                     <p
                       onClick={() =>
                         Handle_Secret(
-                          props.Img.User_id,
                           props.Img._id,
                           props.SetReloadPage,
                           props.ReloadPage
@@ -82,7 +83,6 @@ function Card(props) {
                     <p
                       onClick={() =>
                         Handle_Delete(
-                          props.Img.User_id,
                           props.Img._id,
                           props.SetReloadPage,
                           props.ReloadPage,
@@ -140,6 +140,10 @@ function Card(props) {
           Like={Like}
           SetLoves={SetLoves}
           Loves={Loves}
+          Pin={Pin}
+          SetPin={SetPin}
+          SetIFPin={SetIFPin}
+          IFPin={IFPin}
         />
       ) : null}
     </React.Fragment>

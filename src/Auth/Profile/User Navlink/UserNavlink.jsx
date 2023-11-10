@@ -17,20 +17,22 @@ function UserNavlink(props) {
         </li>
 
         {_id === param.User_id ? (
-          <li>
-            <NavLink to={`/User/${param.User_id}/Secret`} className="action">
-              <p>{props.ProfileData.Secret}</p>
-              <span>Secret</span>
-            </NavLink>
-          </li>
+          <React.Fragment>
+            <li>
+              <NavLink to={`/User/${param.User_id}/Secret`} className="action">
+                <p>{props.ProfileData.Secret}</p>
+                <span>Secret</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={`/User/${param.User_id}/Pins`} className="action">
+                <p>{props.ProfileData.Pins}</p>
+                <span>Pins</span>
+              </NavLink>
+            </li>
+          </React.Fragment>
         ) : null}
 
-        <li>
-          <NavLink to={`/User/${param.User_id}/Pins`} className="action">
-            <p>{props.ProfileData.Pins}</p>
-            <span>Pins</span>
-          </NavLink>
-        </li>
         <li>
           <NavLink to={`/User/${param.User_id}/Followers`} className="action">
             <p>{props.ProfileData.Followers}</p>

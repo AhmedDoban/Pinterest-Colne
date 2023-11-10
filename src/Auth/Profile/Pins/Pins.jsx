@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from "react";
-import Toast_Handelar from "../../../Assets/Utils/Toast_Handelar";
+import React, { useState, useEffect } from "react";
+import "./Pins.css";
 import { useParams } from "react-router-dom";
+import Card from "../../../Assets/Components/Card/Card";
+import Toast_Handelar from "../../../Assets/Utils/Toast_Handelar";
 import axios from "axios";
-import { Player } from "@lottiefiles/react-lottie-player";
 import CardLoader from "../../../Assets/Components/Card Loader/CardLoader";
-import "./Followers.css";
-import FollowCard from "../../../Assets/Components/FollowCard/FollowCard";
+import { Player } from "@lottiefiles/react-lottie-player";
 
-function Followers(props) {
+function Pins(props) {
   const Param = useParams();
-  const [Followers_Data, SetFollowers_Data] = useState([]);
+  const [Pins, SetPins] = useState([]);
   const [Loading, SetLoadin] = useState(true);
   const [More, SetMore] = useState(8);
   const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
+  const TOKEN = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
-  // Get user Followers from backend
+  // Get user Pins from backend
   useEffect(() => {
     const GetData = async () => {
       try {
         SetLoadin(true);
         await axios
           .post(
-            `${process.env.REACT_APP_API}/Users/Followers`,
-            {
-              Follower_id: Param.User_id,
-              User_ID: _id,
-            },
+            `${process.env.REACT_APP_API}/Images/Pins`,
+            { _id: _id, Token: TOKEN },
             {
               headers: {
                 Authorization: Token,
@@ -37,7 +35,7 @@ function Followers(props) {
               Toast_Handelar("error", Res.data.message);
               SetLoadin(false);
             } else {
-              SetFollowers_Data(Res.data.Data);
+              SetPins(Res.data.Data);
               SetLoadin(false);
             }
           });
@@ -46,21 +44,21 @@ function Followers(props) {
       }
     };
     GetData();
-  }, [Param.User_id, Token, props.ReloadPage, _id]);
+  }, [Param.User_id, Token, props.ReloadPage]);
 
   return (
     <React.Fragment>
-      <div className="Followers">
-        {Followers_Data.length > 0 ? (
+      <div className="Pins">
+        {Pins.length > 0 ? (
           <React.Fragment>
             <div className="container">
-              {Followers_Data.slice(0, More).map((Follow) => (
-                <FollowCard
-                  Follow={Follow}
-                  _id={Follow.Follower_id}
-                  key={Follow._id}
-                  ReloadPage={props.ReloadPage}
+              {Pins.slice(0, More).map((Img) => (
+                <Card
+                  Img={Img}
+                  ShowUSer="true"
+                  ShowElemnt={false}
                   SetReloadPage={props.SetReloadPage}
+                  ReloadPage={props.ReloadPage}
                 />
               ))}
               {Loading && <CardLoader />}
@@ -71,14 +69,14 @@ function Followers(props) {
             <Player
               autoplay
               loop
-              src={require("./../../../Assets/Images/followers.json")}
+              src={require("./../../../Assets/Images/ImagePin.json")}
               style={{ height: "300px", width: "300px" }}
             />
-            <p>There is no Followes yet 😮</p>
+            <p>You haven't pinned any images yet. 📌</p>
           </div>
         )}
 
-        {Followers_Data.length > More && (
+        {Pins.length > More && (
           <button
             onClick={() => SetMore((prev) => prev + 10)}
             className="Seemore"
@@ -90,4 +88,4 @@ function Followers(props) {
     </React.Fragment>
   );
 }
-export default Followers;
+export default Pins;

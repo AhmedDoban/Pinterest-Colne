@@ -55,13 +55,36 @@
   align-items: center;
   gap: 15px;
   width: 100%;
+  transition: var(--main-transition);
 }
-
+.FollowCard .Card_Data .follow-number {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+.FollowCard .Card_Data .follow-number p {
+  position: relative;
+  color: var(--main-p-color);
+  font-weight: bold;
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--main-transition);
+}
+.FollowCard .Card_Data .follow-number p:not(:last-child) {
+  position: relative;
+  padding: 0 10px 0 0;
+  border-right: 1px solid var(--main-p-color);
+}
 .FollowCard .info .UserName {
   position: relative;
   font-weight: bold;
   font-size: 16px;
   color: var(--primary-dark-color);
+  transition: var(--main-transition);
+}
+.FollowCard .info .UserName + p {
   transition: var(--main-transition);
 }
 .FollowCard .info .links {

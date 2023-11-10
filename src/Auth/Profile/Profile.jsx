@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Posts = lazy(() => import("./Posts/Posts"));
 const Secret = lazy(() => import("./Secret/Secret"));
+const Pins = lazy(() => import("./Pins/Pins"));
 const AddNewImage = lazy(() => import("./../Add New Image/AddNewImage"));
 const Followers = lazy(() => import("./Followers/Followers"));
 const Following = lazy(() => import("./Following/Following"));
@@ -72,6 +73,15 @@ function Profile(props) {
               path="Secret"
               element={
                 <Secret
+                  ReloadPage={props.ReloadPage}
+                  SetReloadPage={props.SetReloadPage}
+                />
+              }
+            />
+            <Route
+              path="Pins"
+              element={
+                <Pins
                   ReloadPage={props.ReloadPage}
                   SetReloadPage={props.SetReloadPage}
                 />

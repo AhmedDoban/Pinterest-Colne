@@ -1,14 +1,14 @@
 import axios from "axios";
 import Toast_Handelar from "./Toast_Handelar";
 
-const Handle_Secret = async (User_id, Image_id, SetReloadPage, ReloadPage) => {
+const Handle_Secret = async (Image_id, SetReloadPage, ReloadPage) => {
   const TOKEN = JSON.parse(localStorage.getItem("Pinterest-Login"));
-  const { Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
+  const { Token, _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   await axios
     .post(
       `${process.env.REACT_APP_API}/Images/Secret_Image`,
       {
-        User_id: User_id,
+        User_id: _id,
         Image_id: Image_id,
         Token: TOKEN,
       },

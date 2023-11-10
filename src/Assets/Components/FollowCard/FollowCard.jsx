@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./FollowCard.css";
 import Handle_Follow from "../../Utils/Handle_Follow";
 
 function FollowCard(props) {
-  const [FollowAction, SetFollowAction] = useState(props.Follow.If_User_Follow);
   const { _id } = JSON.parse(localStorage.getItem("Pinterest-Login"));
 
   return (
@@ -22,6 +21,16 @@ function FollowCard(props) {
               {props.Follow.User.FirstName} {props.Follow.User.LastName}
             </Link>
             <p>{props.Follow.User.bio}</p>
+            <div className="follow-number">
+              <p>
+                {props.Follow.User.Followers}
+                <span>Followers</span>
+              </p>
+              <p>
+                {props.Follow.User.Following}
+                <span>Following</span>
+              </p>
+            </div>
             {props._id == _id ? null : (
               <div className="action">
                 <button
@@ -34,7 +43,7 @@ function FollowCard(props) {
                   }
                 >
                   <i className="fa-solid fa-user-plus"></i>
-                  {FollowAction ? "UnFollow" : "Follow"}
+                  {props.Follow.If_User_Follow ? "UnFollow" : "Follow"}
                 </button>
               </div>
             )}
