@@ -100,7 +100,7 @@ function Card(props) {
         </div>
         <div className="user">
           {props.ShowUSer === "true" ? (
-            <Link to={`User/${props.Img.User_id}`}>
+            <Link to={`/User/${props.Img.User_id}`}>
               <img
                 src={`${process.env.REACT_APP_API_UPLOADS}/${props.Img.User.Avatar}`}
                 alt={props.Img.User.FirstName}
@@ -118,7 +118,9 @@ function Card(props) {
             <div className="tags">
               {props.Img?.Tags.length > 0 ? (
                 props.Img?.Tags.map((tag, index) => (
-                  <span key={index}>{tag}</span>
+                  <span key={index} onClick={() => props.HandleSearchBtn(tag)}>
+                    {tag}
+                  </span>
                 ))
               ) : (
                 <span>there is no Tags</span>

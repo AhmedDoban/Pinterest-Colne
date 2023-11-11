@@ -58,6 +58,7 @@ function Posts(props) {
                   ShowElemnt={false}
                   SetReloadPage={props.SetReloadPage}
                   ReloadPage={props.ReloadPage}
+                  HandleSearchBtn={props.HandleSearchBtn}
                 />
               ))}
               {Loading && <CardLoader />}

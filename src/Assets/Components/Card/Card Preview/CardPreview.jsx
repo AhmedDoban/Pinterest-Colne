@@ -33,7 +33,7 @@ function CardPreview(props) {
                 onClick={() => SetMenu(!Menu)}
               />
               <div className={Menu ? "menu active" : "menu"}>
-                <Link to={`User/${props.Img.User_id}`}>
+                <Link to={`/User/${props.Img.User_id}`}>
                   <img
                     src={`${CardDataImg}/${props.User.Avatar}`}
                     alt={props.User.FirstName}

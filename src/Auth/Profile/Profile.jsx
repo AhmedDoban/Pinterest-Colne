@@ -66,6 +66,7 @@ function Profile(props) {
                 <Posts
                   ReloadPage={props.ReloadPage}
                   SetReloadPage={props.SetReloadPage}
+                  HandleSearchBtn={props.HandleSearchBtn}
                 />
               }
             />
@@ -75,6 +76,7 @@ function Profile(props) {
                 <Secret
                   ReloadPage={props.ReloadPage}
                   SetReloadPage={props.SetReloadPage}
+                  HandleSearchBtn={props.HandleSearchBtn}
                 />
               }
             />
@@ -84,6 +86,7 @@ function Profile(props) {
                 <Pins
                   ReloadPage={props.ReloadPage}
                   SetReloadPage={props.SetReloadPage}
+                  HandleSearchBtn={props.HandleSearchBtn}
                 />
               }
             />

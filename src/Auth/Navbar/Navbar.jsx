@@ -7,6 +7,7 @@ import "./Navbar.css";
 function Navbar(props) {
   const { _id, Token } = JSON.parse(localStorage.getItem("Pinterest-Login"));
   const [ProfileData, SetProfileData] = useState("");
+
   // handle logout basics to remove data from browser and to tell database the device is logout
   const Logout_Handelar = async () => {
     try {
@@ -60,9 +61,20 @@ function Navbar(props) {
           <Link className="logo" to="/">
             <img src={require("../../Assets/Images/logo.png")} alt="logo" />
           </Link>
-          <div className="search" to="/">
-            <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search" />
+          <div className="search">
+            <i
+              className="fa-solid fa-magnifying-glass"
+              onClick={() => props.HandleSearchBtn()}
+            />
+            <input
+              type="search"
+              placeholder="Search"
+              onFocus={() => props.SetIsSearch(true)}
+              onBlur={() => props.SetIsSearch(false)}
+              value={props.Search}
+              onChange={(e) => props.SetSearch(e.target.value)}
+              onKeyPress={(e) => props.HandleSearch(e)}
+            />
           </div>
           <div className="setting-nav">
             <div className="Theme">
