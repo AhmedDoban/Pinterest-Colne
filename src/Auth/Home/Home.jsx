@@ -89,9 +89,9 @@ function Home(props) {
             />
           ))}
           {Loading && !EndData ? <CardLoader /> : null}
-          <AddNewImage />
         </div>
       </div>
+      <AddNewImage />
     </React.Fragment>
   );
 }

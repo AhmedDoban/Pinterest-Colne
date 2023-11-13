@@ -110,8 +110,8 @@ function Profile(props) {
             />
           </Routes>
         </div>
-        <AddNewImage />
       </div>
+      <AddNewImage />
     </React.Fragment>
   );
 }
