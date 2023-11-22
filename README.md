@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# <p align="center" id="title">Pinterest Colne</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="https://github.com/AhmedDoban/Pinterest-Colne/assets/73547094/e56a412a-05c0-46a5-8101-7f61c8768f20" alt="project-image"></p>
 
-## Available Scripts
+<p id="description" align="center">that is a new small project "Pinterest clone" by MERN stack 
+pages Guest ==> login, register
+pages Auth ==> Home page, profile (posts, secrets, pins, following, followers ), setting, search and add image page 
+what you can do on that page? 
+insert a new image and share friends with your inspiration, like ❤️ , pin 📌 images you can also delete the image if you don't want it anymore 🤔 but I recommend making it a secret it is a helpful function 🤩 so I will let you to see what you will get ...  </p>
 
-In the project directory, you can run:
+# 🚀 <a href="https://pinterest-colne-git-main-ahmeddoban.vercel.app/" > Demo </a>
 
-### `npm start`
+# 🧐 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Here're some of the project's best features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<details open >
+<summary>Guest</summary>
 
-### `npm test`
+    - login
+    - register
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</details >
 
-### `npm run build`
+<details open>
+<summary open>Auth</summary>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - Home page
+    - profile
+    - posts
+    - secrets
+    - pins
+    - following
+    - followers
+    - setting
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+</details >
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details open>
+<summary>features</summary>
 
-### `npm run eject`
+    - (insert / delete) image
+    - (Show / Hide) Image
+    - (Like / Unlike) Image
+    - (Pin / Unpin) Image
+    - (Follow / Unfollow) User
+    - Search
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+</details >
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h2>🛠️ Installation Steps</h2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p>1. Create a Project First</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+npx create-react-app Pinterest Colne-Front-End
+```
 
-## Learn More
+<p>2. install all dependencys</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm i
+```
+<p>3. Create an backend database and enjoy 🤩</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
