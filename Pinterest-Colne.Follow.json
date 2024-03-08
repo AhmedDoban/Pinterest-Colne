@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "654cb0021c798c63c61ff51e"
+  },
+  "Follower_id": {
+    "$oid": "6549eb6eafe1d9e59ec464ac"
+  },
+  "Following_id": {
+    "$oid": "653d8885bab29bc3ad891b79"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654cfa634010d8eb21a0b302"
+  },
+  "Follower_id": {
+    "$oid": "653d8885bab29bc3ad891b79"
+  },
+  "Following_id": {
+    "$oid": "6549eb6eafe1d9e59ec464ac"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654d0eecbb4197610991aae8"
+  },
+  "Follower_id": {
+    "$oid": "653ede2188e9c4a49c5d10c5"
+  },
+  "Following_id": {
+    "$oid": "653d8885bab29bc3ad891b79"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654d11a8bb4197610991ac14"
+  },
+  "Follower_id": {
+    "$oid": "653ede2188e9c4a49c5d10c5"
+  },
+  "Following_id": {
+    "$oid": "6549eb6eafe1d9e59ec464ac"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65507f0dbf9741fec684f5b9"
+  },
+  "Follower_id": {
+    "$oid": "653d8885bab29bc3ad891b79"
+  },
+  "Following_id": {
+    "$oid": "653ede2188e9c4a49c5d10c5"
+  },
+  "__v": 0
+}]

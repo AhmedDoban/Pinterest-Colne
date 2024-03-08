@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "654de749da6b50980bb89650"
+  },
+  "Image_id": {
+    "$oid": "6548a758eea735fd11129d87"
+  },
+  "User_id": {
+    "$oid": "6549eb6eafe1d9e59ec464ac"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65507efcbf9741fec684f59e"
+  },
+  "Image_id": {
+    "$oid": "654b32383d08a90f5a72083b"
+  },
+  "User_id": {
+    "$oid": "653d8885bab29bc3ad891b79"
+  },
+  "__v": 0
+}]
