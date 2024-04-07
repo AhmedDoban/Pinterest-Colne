@@ -3,7 +3,6 @@
 <p align="center"><img src="https://github.com/AhmedDoban/Pinterest-Colne/assets/73547094/e56a412a-05c0-46a5-8101-7f61c8768f20" alt="project-image"></p>
 
 <p id="description" align="center">
-A Pinterest clone built using the MERN stack, enabling users to register, log in, and access features like profile management, image sharing, liking, pinning, and deletion. Utilizes JWT-based authentication, MongoDB for data storage, and React.js for dynamic frontend interfaces.
 
  </p>
 
@@ -11,6 +10,7 @@ A Pinterest clone built using the MERN stack, enabling users to register, log in
 
 # Key Features:
 
+A Pinterest clone built using the MERN stack, enabling users to register, log in, and access features like profile management, image sharing, liking, pinning, and deletion. Utilizes JWT-based authentication, MongoDB for data storage, and React.js for dynamic frontend interfaces.
 - User authentication and profile management
 - Image upload, sharing, liking, pinning, and deletion
 - Responsive and intuitive user interfaces
