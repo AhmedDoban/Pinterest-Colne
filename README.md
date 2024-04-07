@@ -36,52 +36,81 @@ Here're some of the project's best features
 - Search: Search for images or users within the platform.
 - Responsive Design: Ensures seamless user experience across devices.
 
-<details open >
-<summary>Guest</summary>
+## Installation
 
-    - login
-    - register
+### Requirements
 
-</details >
+Before proceeding with the installation, make sure you have the following prerequisites installed on your system:
 
-<details open>
-<summary open>Auth</summary>
+- Node.js
+- MongoDB
+- npm (Node.js package manager, usually comes with Node.js installation)
 
-    - Home page
-    - profile
-    - posts
-    - secrets
-    - pins
-    - following
-    - followers
-    - setting
+### Steps
 
-</details >
+1. **Clone the repository:**
 
-<details open>
-<summary>features</summary>
+   ```bash
+   git clone https://github.com/AhmedDoban/Pinterest-Colne
+   ```
 
-    - (insert / delete) image
-    - (Show / Hide) Image
-    - (Like / Unlike) Image
-    - (Pin / Unpin) Image
-    - (Follow / Unfollow) User
-    - Search
+2. **Navigate to the back-end project directory:**
 
-</details >
+   ```bash
+   cd Pinterest Colne-Back-end
+   ```
 
-<h2>🛠️ Installation Steps</h2>
+3. **Install dependencies:**
 
-<p>1. Create a Project First</p>
+   ```bash
+   npm install
+   ```
 
-```
-npx create-react-app Pinterest Colne-Front-End
-```
+4. **Configure environment variables:**
 
-<p>2. install all dependencys</p>
+   Create a `.env` file in the root directory of the project and specify the following environment variables:
 
-```
-npm i
-```
+   ```plaintext
+   PORT=3000
+   MONGODB_URI=mongodb://localhost:27017/Pinterest-Colne
+   JWT_SECRET_KEY="6e65a3d7e6fea3106aeb99840d7b9f15e811c59e30134cb9567db67cee111df7"
+   ```
 
-<p>3. Create an backend database and enjoy 🤩</p>
+   Replace `mongodb://localhost:27017/Pinterest-Colne` with your MongoDB connection URI.
+   Replace `6e65a3d7e6fea3106aeb99840d7b9f15e811c59e30134cb9567db67cee111df7` with your JWT Secret key.
+
+5. **Start the application:**
+
+   ```bash
+   npm run nodemon
+   ```
+
+6. **Navigate to the back-end project directory:**
+
+   ```bash
+   cd Pinterest Colne-Front-End
+   ```
+
+7. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+8. **Start the application:**
+
+   ```bash
+   npm start
+   ```
+
+9. **Access the application:**
+
+   Open a web browser and navigate to `http://localhost:3000` to access the Academic Management System.
+
+10. **Set up admin account:**
+
+    Upon accessing the application for the first time, you'll be prompted to create an admin account. Follow the on-screen instructions to complete the setup.
+
+11. **Enjoy using the Academic Management System!**
+
+    You're all set! Explore the features and functionalities of the system to manage academic activities efficiently.
